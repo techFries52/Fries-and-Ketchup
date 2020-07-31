@@ -1,0 +1,90 @@
+.navbar-dark .nav-item.active .nav-link,
+.navbar-dark .nav-item:focus .nav-link,
+.navbar-dark .nav-item:hover .nav-link,
+.navbar-dark .navbar-brand {
+        color: #773000;
+}
+
+.navbar-dark {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    background-color: #b16208 !important;
+}
+
+.navbar-brand {
+    font-family: 'Metal Mania', cursive;
+}
+.display-3 {
+    font-family: 'Metal Mania', cursive;
+    color: #D35400;
+}
+
+.lead {
+    font-size: xx-large;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    color: #f16202;
+}
+
+.jumbotron {
+    padding-top: 100px;
+    padding-bottom: 32px;
+    background-color:#130902 !important; 
+}
+
+#para {
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    font-weight: 700;
+    font-size: x-large;
+    padding: 20px;
+}
+
+.fa-poop {
+    color: brown;
+}
+
+.space1 {
+    font-size: large;
+    font-weight: bolder;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+body {
+    background-image: url('pics/backgroundBarnWood2.jpg');
+}
+
+.cardText {
+    padding: 25px;
+}
+
+.cardPic {
+    padding: 10px;
+}
+
+.container2 {
+    padding-top: 20px;
+}
+
+.card {
+    background-image: url('pics/parchment3.jpg');
+    background-size: cover;
+    padding: 10px;
+}
+
+.winloss {
+    background-image: url('pics/parchment4.jpg');
+    background-size: cover;
+}
+
+.memberLarge {
+    padding: 10px 5px 0px 5px;
+    background-image: url('pics/parchmentMemberLarge.jpg');
+    background-size: cover;
+}
+
+.memberSmall {
+    background-image: url('pics/parchment2memberSmall.jpg');
+    background-size: cover;
+}
+
