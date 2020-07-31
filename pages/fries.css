@@ -39,6 +39,10 @@
     padding: 20px;
 }
 
+.fa-trophy {
+    color: #D35400;
+}
+
 .fa-poop {
     color: brown;
 }
@@ -70,11 +74,17 @@ body {
     background-image: url('pics/parchment3.jpg');
     background-size: cover;
     padding: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.card-body {
+    padding-bottom: 0px;
 }
 
 .winloss {
     background-image: url('pics/parchment4.jpg');
     background-size: cover;
+    border-radius: 5%;
 }
 
 .memberLarge {
@@ -88,3 +98,27 @@ body {
     background-size: cover;
 }
 
+.totalCount {
+    padding: 30px 0px 10px 0px;    
+    width: 700px;
+    margin: auto;
+    text-align: center;
+    font-size: larger;
+    font-weight: 600;
+}
+
+#totalWinCountDisplay {
+    margin-right: 10px;
+}
+
+#resetButton {
+    font-weight: 800;
+}
+
+.pMarginNone {
+    margin-bottom: 0px;
+}
+
+.marginTop {
+    margin-top: 10px;
+}
