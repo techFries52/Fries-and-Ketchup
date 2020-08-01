@@ -27,9 +27,17 @@
 }
 
 .jumbotron {
-    padding-top: 100px;
-    padding-bottom: 32px;
+    padding-top: 90px;
+    padding-bottom: 5px;
     background-color:#130902 !important; 
+}
+
+hr {
+    background-color: #f16202ab;
+}
+
+#jumboPara {
+    color: #f16202;
 }
 
 #para {

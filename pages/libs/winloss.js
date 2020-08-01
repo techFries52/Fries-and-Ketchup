@@ -202,11 +202,32 @@ resetButton.addEventListener('click', function(){
 
 // var trophyScores = [wsgTrophyCount, arathiTrophyCount, eotsTrophyCount, ssTrophyCount, bfgTrophyCount, tpTrophyCount, templeTrophyCount, seethingTrophyCount]
 
-// function resetTrophyScores(count) {
+// trophyScores.forEach(function(i) {
 //     for(var i = 0; i < trophyScores.length; i++) {
-//         count[i] = 0;
+//         this[i] = 0;
 //     }
+// });
+
+// function resetTrophyScores() {
+//     trophyScores.forEach(function(i) {
+//         for(var i = 0; i < trophyScores.length; i++) {
+//             this[i] = 0;
+//         }
+//     });
 // }
+// movieDatabase.foreach(function(movie){
+//     var result = "you have "; 
+//     if(movie.haveWatched) {
+//         result += "watched ";
+//     }
+//     else {
+//         result += "not watched ";   
+//     }
+//     result += movie.anime;
+//     result += " " + movie.rating +" stars!";
+//     console.log(result)
+// })
+
 function resetTrophyScores() {
     wsgTrophyCount = 0;
     wsgTrophyDisplay.textContent = wsgTrophyCount;
