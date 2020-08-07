@@ -184,21 +184,78 @@ seethingShitButton.addEventListener('click', function(){
 
 // Fade ins
 
-function fadeInOnLoad() {
-    $('.fadeLoad1').hide(0).delay(750).fadeIn('slow');
-    $('.fadeLoad2').hide(0).delay(1250).fadeIn('slow');
-    $('.fadeLoad3').hide(0).delay(1750).fadeIn('slow');
-    $('.fadeLoad4').hide(0).delay(2250).fadeIn('slow');
-    $('.totalCount').hide(0).delay(3000).fadeIn('slow');
+// function fadeInOnLoad() {
+//     $('.fadeLoad1').hide(0).delay(750).fadeIn('slow');
+//     $('.fadeLoad2').hide(0).delay(1250).fadeIn('slow');
+//     $('.fadeLoad3').hide(0).delay(1750).fadeIn('slow');
+//     $('.fadeLoad4').hide(0).delay(2250).fadeIn('slow');
+//     $('.totalCount').hide(0).delay(3000).fadeIn('slow');
 
+// }
+
+var fadeLoad1V = document.querySelectorAll('.winloss1');
+var fadeLoadTotal = document.querySelector('.totalCount');
+// var fadeLoad2V = document.getElementsByClassName('winloss2');
+// var fadeLoad3V = document.getElementsByClassName('winloss3');
+// var fadeLoad4V = document.getElementsByClassName('winloss4');
+
+
+// for(var i = 0; i < fadeLoad1V.length; i++) {
+//     fadeLoad1V[i].classList.add('fadeLoad1');
+// }
+
+// document.getElementsByClassName('fadeLoad1').style.opacity='1';
+function fadeLoad1In() {
+    fadeLoadTotal.classList.add('fadeLoad1');
+    for(var i = 0; i < fadeLoad1V.length; i++) {
+        fadeLoad1V[i].classList.add('fadeLoad1');
+    };
 }
-$(document).ready(function() {
-    fadeInOnLoad();
-});
+
+// function fadeLoad2In() {
+//     for(var i = 0; i < fadeLoad2V.length; i++) {
+//         fadeLoad2V[i].classList.add('fadeLoad2');
+//     };
+// }
+
+// function fadeLoad3In() {
+//     for(var i = 0; i < fadeLoad3V.length; i++) {
+//         fadeLoad3V[i].classList.add('fadeLoad3');
+//     };
+// }
+
+// function fadeLoad4In() {
+//     for(var i = 0; i < fadeLoad4V.length; i++) {
+//         fadeLoad4V[i].classList.add('fadeLoad4');
+//     };
+// }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    fadeLoad1In();
+    // fadeLoad2In();
+    // fadeLoad3In();
+    // fadeLoad4In();
+})
+
+// $(document).ready(function() {
+//     // fadeInOnLoad();
+//     // opacityLoadIn();
+//     fadeLoadInOpac();
+// });
 
 resetButton.addEventListener('click', function(){
     resetAllScores();
 });
+
+// function opacityLoadIn() {
+//     $('.fadeLoad1').css('opacity', '1').delay(750);
+//     $('.fadeLoad2').hide(0).delay(1250).fadeIn('slow');
+//     $('.fadeLoad3').hide(0).delay(1750).fadeIn('slow');
+//     $('.fadeLoad4').hide(0).delay(2250).fadeIn('slow');
+// }
+
+
 
 // var trophyScores = [wsgTrophyCount, arathiTrophyCount, eotsTrophyCount, ssTrophyCount, bfgTrophyCount, tpTrophyCount, templeTrophyCount, seethingTrophyCount]
 
@@ -274,3 +331,7 @@ function resetAllScores() {
     resetTrophyScores();
     resetShitScores();
 }
+
+
+    
+  
