@@ -1,0 +1,146 @@
+<%- include("partials/header") %>
+
+
+    <div class="jumboContainer">
+        <div class="jumbotron text-center">
+            <h1 class="display-3">Fries and Ketchup</h1>
+            <h2 class="lead">Win/Loss Tracker</h2>
+            <hr class="my-2">
+            <div class="container">
+                <h4 id="jumboPara" class="floatLeft">Seasons Record</h4>
+                <h4 id="jumboPara" class="floatRight"> Wins Losses</h4>
+            </div>
+            <!-- <p class="lead">
+                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+            </p> -->
+        </div>
+    </div>
+
+<%- include("partials/newrbgbtn") %>
+
+    <!-- <div class="container">
+        <div class="row">            
+            <a href="newwinloss" class="btn col-4 offset-4 newwinlossbtn">
+                New RBG  
+            </a>          
+        </div>
+    </div> -->
+
+
+    <div class="container marginCont">
+        <div class="row">
+            <div class="col-lg-3 mb-3">
+                <div class="card winloss winloss1">
+                    <div class="card-body">
+                        <p>Warsong Gulch</p>                        
+                        <p>
+                            <button id="wsgTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button><span class="space1" id="wsgTrophyDisplay">0</span>
+                            <button id="wsgShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="wsgShitDisplay">0</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 mb-3">
+                <div class="card winloss winloss1">
+                    <div class="card-body">
+                        <p>Arathi Basin</p>                        
+                        <p><button id="arathiTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button><span class="space1" id="arathiTrophyDisplay">0</span>
+                            <button id="arathiShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="arathiShitDisplay">0</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 mb-3">
+                <div class="card winloss winloss1">
+                    <div class="card-body">
+                        <p>Eye of the Storm</p>                        
+                        <p><button id="eotsTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button><span class="space1" id="eotsTrophyDisplay">0</span>
+                            <button id="eotsShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="eotsShitDisplay">0</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 mb-3">
+                <div class="card winloss winloss1">
+                    <div class="card-body">
+                        <p>Silvershard Mines</p>                        
+                        <p><button id="ssTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button><span class="space1" id="ssTrophyDisplay">0</span>
+                            <button id="ssShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="ssShitDisplay">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 mb-3">
+                <div class="card winloss winloss1">
+                    <div class="card-body">
+                        <p>Battle For Gilneas</p>                        
+                        <p><button id="bfgTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button><span class="space1" id="bfgTrophyDisplay">0</span>
+                            <button id="bfgShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="bfgShitDisplay">0</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 mb-3">
+                <div class="card winloss winloss1">
+                    <div class="card-body">
+                        <p>Twin Peaks</p>                        
+                        <p><button id="tpTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button><span class="space1" id="tpTrophyDisplay">0</span>
+                            <button id="tpShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="tpShitDisplay">0</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 mb-3">
+                <div class="card winloss winloss1">
+                    <div class="card-body">
+                        <p>Temple of Kotmogu</p>                        
+                        <p><button id="templeTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button><span class="space1" id="templeTrophyDisplay">0</span>
+                            <button id="templeShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="templeShitDisplay">0</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 mb-3">
+                <div class="card winloss winloss1">
+                    <div class="card-body">
+                        <p>Seething Shore</p>                    
+                        <p><button id="seethingTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button><span class="space1" id="seethingTrophyDisplay">0</span>
+                            <button id="seethingShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="seethingShitDisplay">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-7 mb-3">
+                <div class="card totalCount">
+                    <p class="marginTop">
+                        Total Wins and Losses:
+                    </p>
+                    <p>
+                        Wins: <span id="totalWinCountDisplay">0</span>
+                        Losses: <span id="totalLoseCountDisplay">0</span>
+                    </p>
+                    <p class="pMarginNone">
+                        <button class="btn" id="resetButton">Reset</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script type="text/javascript" src="js/winloss.js"></script>
+
+
+<%- include("partials/footer") %>
