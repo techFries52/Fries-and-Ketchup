@@ -8,7 +8,7 @@
             <hr class="my-2">
             <div class="container">
                 <h4 id="jumboPara" class="floatLeft">Seasons Record</h4>
-                <h4 id="jumboPara" class="floatRight"> Wins Losses</h4>
+                <h4 id="jumboPara" class="floatRight">Tonight: Wins Losses</h4>
             </div>
             <!-- <p class="lead">
                 <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
@@ -118,7 +118,7 @@
 
 
     <div class="container">
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center yellowbar">
             <div class="col-lg-7 mb-3">
                 <div class="card totalCount">
                     <p class="marginTop">
@@ -135,6 +135,33 @@
             </div>
         </div>
     </div>
+
+
+<div class="container recentbgs">
+    <% winlosses.forEach(function(winloss){ %>
+        <div class="row justify-content-center">             
+            <div class="col-lg-8 recentbgdiv">
+                <a href="<%= winloss._id %>">
+                    <h2>
+                        <%= winloss.bgs %>
+                    </h2>
+                    <span><%= winloss.created.toDateString() %></span></a>
+            </div>                          
+        </div>
+    <% }) %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

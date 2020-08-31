@@ -1,0 +1,90 @@
+<%- include("partials/header") %>
+
+<div class="jumboContainer">
+    <div class="jumbotron text-center">
+        <h1 class="display-3">Fries and Ketchup</h1>
+        <div class="container">
+            <h2 class="lead">Landing Page</h2>
+        </div>
+        <hr class="my-2">
+        <div class="container">
+            <h4 id="jumboPara" class="floatLeft">Seasons Record</h4>
+            <h4 id="jumboPara" class="floatRight">Tonight: Wins Losses</h4>
+        </div>
+        <!-- <p class="lead">
+            <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+        </p> -->
+    </div>
+</div>
+
+
+
+<%- include("partials/newrbgbtn") %>
+
+<div class="container speccont2">
+    <div class="row justify-content-center">
+        <h2><%= winloss.bgs %></h2>
+    </div>
+    <div class="row justify-content-center">
+        <div>
+            <% if(winloss.victory) { %>
+                <h3 class="green">Victory</h3>
+            <% } else { %> 
+                <h3 class="red">Defeat</h3>
+            <% } %>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3 class="teambg">Your Team</h3>
+            <ul class="teamul">
+                <li class="teamsli"><%= winloss.ally1 %></li>
+                <li class="teamsli"><%= winloss.ally2 %></li>
+                <li class="teamsli"><%= winloss.ally3 %></li>
+                <li class="teamsli"><%= winloss.ally4 %></li>
+                <li class="teamsli"><%= winloss.ally5 %></li>
+                <li class="teamsli"><%= winloss.ally6 %></li>
+                <li class="teamsli"><%= winloss.ally7 %></li>
+                <li class="teamsli"><%= winloss.ally8 %></li>
+                <li class="teamsli"><%= winloss.ally9 %></li>
+                <li class="teamsli"><%= winloss.ally10 %></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h3 class="teambg">Enemy Team</h3>
+            <ul class="teamul">
+                <li class="teamsli"><%= winloss.enemy1 %></li>
+                <li class="teamsli"><%= winloss.enemy2 %></li>
+                <li class="teamsli"><%= winloss.enemy3 %></li>
+                <li class="teamsli"><%= winloss.enemy4 %></li>
+                <li class="teamsli"><%= winloss.enemy5 %></li>
+                <li class="teamsli"><%= winloss.enemy6 %></li>
+                <li class="teamsli"><%= winloss.enemy7 %></li>
+                <li class="teamsli"><%= winloss.enemy8 %></li>
+                <li class="teamsli"><%= winloss.enemy9 %></li>
+                <li class="teamsli"><%= winloss.enemy10 %></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include("partials/footer") %>

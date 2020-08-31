@@ -4,7 +4,7 @@
     <div class="jumbotron text-center">
         <h1 class="display-3">Fries and Ketchup</h1>
         <div class="container">
-            <h2 class="lead">Landing Page</h2>
+            <h2 class="lead">User Page</h2>
         </div>
         <hr class="my-2">
         <div class="container">
@@ -18,23 +18,8 @@
 </div>
 
 
-
 <%- include("partials/newrbgbtn") %>
 
-
-<div class="container margindivt">
-    <div class="row justify-content-center ">
-        <% winlosses.forEach(function(winloss){ %>    
-            <div class="col-lg-8 recentbgdiv">
-                <a href="<%= winloss._id %>">
-                    <h2>
-                        <%= winloss.bgs %>
-                    </h2>
-                    <span><%= winloss.created.toDateString() %></span></a>
-            </div>                          
-        <% }) %>
-    </div>
-</div>
 
 
 

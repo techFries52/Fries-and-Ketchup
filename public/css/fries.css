@@ -241,13 +241,14 @@ h3 {
 
 .winloss {
     color: #fafafa;
-    background-color: #0e0d00c5;
+    background-color: #2c2c2c;
     font-size: large;
     opacity: 1;
     /* background-image: url('images/parchment4.jpg'); */
     /* background-size: cover; */
-    border-radius: 5%;
+    border-radius: 27px;
     font-family: 'Aclonica', sans-serif;
+    border: 3px solid #0f0f0f;
     /* transition: background 2.0s;
     -webkit-transition: background 0.6s;
     -moz-transition: background 0.6s; */
@@ -256,7 +257,7 @@ h3 {
 
 .totalCount {
     color: #fafafa;
-    background-color: #0e0d00c5;
+    background-color: #2c2c2c;
     padding: 30px 0px 10px 0px;    
     margin: auto;
     width: auto;
@@ -264,10 +265,25 @@ h3 {
     font-family: 'Aclonica', sans-serif;
     font-size: large;
     font-weight: 400;
-    opacity: 1;
+    border-radius: 27px;
+    border: 3px solid #0f0f0f;
 }
 
+.recentbgs {
+    margin-top: 30px;
+    margin-bottom: 150px;
+}
 
+.recentbgdiv {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #2c2c2c;
+    color: #fafafa;
+    border: 3px solid #0f0f0f;
+    text-align: center;
+    font-family: 'Aclonica', sans-serif;
+    border-radius: 27px;
+}
 
 #totalWinCountDisplay {
     margin-right: 10px;
@@ -293,6 +309,52 @@ h3 {
     opacity: 1;    
 }
 
+.speccont2 {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding: 10px;
+    background-color: #0a0a0a;
+    border-radius: 27px;
+    border: 10px solid #1b1b1b;
+}
+
+span {
+    color: #fafafa;
+}
+
+.green {
+    color: #00b10f;
+}
+
+.red {
+    color: #c70505;
+}
+
+.yellowbar {
+    
+    border-bottom:3px solid #ffc116
+}
+
+.margindivt {
+    margin-top: 50px;
+}
+
+.teambg {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+h2 {
+    color: #fafafa;
+    font-family: 'Metal Mania', cursive;
+}
+
+.victorybox {
+    color: #fafafa;
+    font-family: 'Metal Mania', cursive;
+    margin-top: 50px;
+}
+
 /* 
 ===============================================================
 ===============================================================
@@ -305,23 +367,24 @@ h3 {
     border: 6px solid #172975;
     box-shadow: 15px 35px #000000b2;
     height: 1200px;
+    border-radius: 27px;
 }
 
 .winlossformtop {
     padding-top: 15px;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .newwinlosscol.h3 {
     font-weight: normal;
     font-family: 'Metal Mania', cursive;
 }
-.newwinlosscol {
-    text-align: center;
-    width: auto;
-    padding: 10px 50px 30px 50px;
+.newwinlosscol {  
+    text-align: center;  
+    padding: 10px auto 30px auto;
     color: #fafafa;
     background-color: #0f0f0fc2;
+    border-radius: 27px;
 }
 
 .winlosstopcont {
@@ -329,9 +392,25 @@ h3 {
 }
 
 .pteamcol {
-    height: 600px;
+    height: fit-content;
     color: #fafafa;
     background-color: #0a0a0a;
+    border-radius: 5%;
+    list-style-type: none;
+}
+
+.teamul {
+    font-family: 'Aclonica', sans-serif;
+    color: #fafafa;
+    background-color: #0a0a0a;
+    border-radius: 5%;
+    padding: 0;
+    list-style-type: none;
+}
+
+.teamsli {
+    padding: 10px 5px;
+    text-align: center;
 }
 
 .submitwinlossbtn {
@@ -348,11 +427,26 @@ h3 {
     text-align: center;
 }
 
+.speccont {
+    padding: 10px;
+    background-color: #0a0a0a;
+    border-radius: 27px;
+    border: 10px solid #1b1b1b;
+}
+
 /* .submitwinlossbtn:hover {
     color: #172975;
 } */
 
 .submitrow {
+    justify-content: center;
     text-align: center;
     margin-top: -175px;
 }
+
+.custom-select {
+    background-color: #fafafaee;
+}
+/* select option[value="dk"] {
+    background: rgb(170, 3, 3);
+  } */

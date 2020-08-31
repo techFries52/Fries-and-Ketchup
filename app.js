@@ -32,13 +32,7 @@ app.use(express.static(__dirname + '/public/'));
 // Schemas
 // ===============================================================
 const Winloss = require('./models/winlossModule');
-// const winlossSchema = new mongoose.Schema({
-// 	// title: String,
-// 	// image: String,
-// 	// body: String,
-// 	// created: {type: Date, default: Date.now}
-// });
-// const Winloss = mongoose.model('Winloss', winlossSchema);
+
 
 
 
@@ -52,12 +46,18 @@ const Winloss = require('./models/winlossModule');
 
 app.get('/', function(req, res) {
 	console.log('GET request to /');
-	res.render('index');
+	res.redirect('index');
 });
 
 app.get('/index', function(req, res) {
+	Winloss.find({}, function(err, winlosses){
+		if(err) {
+			console.log(err);
+		} else {
+			res.render('index', {winlosses: winlosses});
+		}
+	})
 	console.log('GET request to index');
-	res.render('index');
 });
 
 app.get('/members', function(req, res) {
@@ -65,33 +65,61 @@ app.get('/members', function(req, res) {
 	res.render('members');
 });
 
-app.get('/winloss', function(req, res) {
-	console.log('GET request to Winloss');
-	res.render('winloss');
-});
-
-// ===============================================================
-// NEW ROUTES
-// ===============================================================
-
 app.get('/newwinloss', function(req, res) {
 	console.log('GET request to newwinloss');
 	res.render('newwinloss');
 })
 
+app.get('/winloss', function(req, res) {
+	Winloss.find({}, function(err,winlosses){
+		if(err) {
+			console.log(err);
+		} else {
+			res.render('winloss', {winlosses: winlosses});
+		}
+	})
+	console.log('GET request to winloss');
+	// res.render('winloss');
+});
+
+app.get('/user', function(req, res) {
+	console.log('GET request to user');
+	res.render('user');
+});
+
+app.get('/:id', function(req, res) {
+	Winloss.findById(req.params.id, function(err, winlosses){
+		if(err){
+			console.log(err);
+		} else {
+			res.render('bgshow', {winloss: winlosses});
+		}
+	})	
+})
+
+
+// ===============================================================
+// NEW ROUTES
+// ===============================================================
+
+
+
 app.post('/winloss', function(req, res) {
 	console.log('POST request to winloss');
+	// res.redirect('winloss');
+	// req.body = req.sanitize(req.body);
+	let match = new Winloss(req.body);
+	match.save();
+	console.log(req.body);
 	res.redirect('winloss');
-	// req.body.blog.body = req.sanitize(req.body.blog.body);
-	// Winloss.create(req.body.winloss, function(err, newBlog){
-	// 	if(err){
-	// 		console.log('error');
-	// 		res.render('new');
-	// 	} else {
-	// 		res.redirect('/winloss');
-	// 	}
-	// })
 })
+
+app.post('/user', function(req, res) {
+	console.log('POST request made to user');
+	res.render('user');
+})
+
+
 // ===============================================================
 // PUT REQUESTS
 // ===============================================================
