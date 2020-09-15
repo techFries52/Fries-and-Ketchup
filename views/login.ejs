@@ -1,0 +1,36 @@
+<%- include("partials/header") %>
+
+<div class="jumboContainer">
+    <div class="jumbotron text-center">
+        <h1 class="display-3">Fries and Ketchup</h1>
+        <div class="container">
+            <h2 class="lead">Login Page</h2>
+        </div>
+        <hr class="my-2">
+        <div class="container">
+        
+        </div>
+        <!-- <p class="lead">
+            <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+        </p> -->
+    </div>
+</div>
+
+
+
+<%- include("partials/newrbgbtn") %>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-4 loginbox">
+            <div>
+                <form action="/login" method="POST">
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="password" placeholder="Password" name="password">
+                    <br><button>Log In</button>
+                </form>
+            </div>
+            <a href="/register"><button>New User</button></a>
+        </div>
+    </div>
+</div>

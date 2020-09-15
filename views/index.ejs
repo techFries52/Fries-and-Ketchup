@@ -8,8 +8,31 @@
         </div>
         <hr class="my-2">
         <div class="container">
-            <h4 id="jumboPara" class="floatLeft">Seasons Record</h4>
-            <h4 id="jumboPara" class="floatRight">Tonight: Wins Losses</h4>
+            <h4 id="jumboPara" class="floatLeft">Games Played: <span><%- winlosses.length %> </span></h4>
+            <h4 id="jumboPara" class="floatRight">Wins: <span>
+                <% let wins = 0; %>
+                <% winlosses.forEach(function(winloss){ %>                                    
+                    <% if(winloss.victory === 'on') { %>
+                        <% wins += 1; %>
+                    <% } else { %>
+                        <% null %>
+                    <% } %>                                    
+                <% }) %>
+                <% let winstotal = wins; %>
+                <%- winstotal %> </span> 
+                Losses: <span>
+                <% let losses = 0; %>
+                <% winlosses.forEach(function(winloss){ %>                                    
+                    <% if(winloss.defeat === 'on') { %>
+                        <% losses += 1; %>
+                    <% } else { %>
+                        <% null %>
+                    <% } %>                                    
+                <% }) %>
+                <% let lossestotal = losses; %>
+                <%- lossestotal %>
+                </span>
+            </h4>
         </div>
         <!-- <p class="lead">
             <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
@@ -23,14 +46,20 @@
 
 
 <div class="container margindivt">
-    <div class="row justify-content-center ">
-        <% winlosses.forEach(function(winloss){ %>    
+    <div class="row justify-content-center ">       
+        <% winlosses.slice().reverse().forEach(function(winloss) { %>
             <div class="col-lg-8 recentbgdiv">
-                <a href="<%= winloss._id %>">
+                <a href="match/<%= winloss._id %>">
                     <h2>
                         <%= winloss.bgs %>
                     </h2>
-                    <span><%= winloss.created.toDateString() %></span></a>
+                    <span><%= winloss.created.toDateString() %></span>
+                    <span><% if(winloss.victory === "on") { %>
+                        <h3 class="green">Victory</h3>
+                    <% } else { %>
+                        <h3 class="red"> Defeat</h3>
+                    <% } %></span>
+                </a>
             </div>                          
         <% }) %>
     </div>

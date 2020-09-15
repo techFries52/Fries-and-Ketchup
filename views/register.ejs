@@ -1,0 +1,62 @@
+<%- include("partials/header") %>
+
+<div class="jumboContainer">
+    <div class="jumbotron text-center">
+        <h1 class="display-3">Fries and Ketchup</h1>
+        <div class="container">
+            <h2 class="lead">Register</h2>
+        </div>
+        <hr class="my-2">
+        <div class="container">
+            <h4 id="jumboPara" class="floatLeft">Games Played: <span><%- winlosses.length %> </span>
+            <h4 id="jumboPara" class="floatRight">Wins: <span>
+                <% let wins = 0; %>
+                <% winlosses.forEach(function(winloss){ %>                                    
+                    <% if(winloss.victory === 'on') { %>
+                        <% wins += 1; %>
+                    <% } else { %>
+                        <% null %>
+                    <% } %>                                    
+                <% }) %>
+                <% let winstotal = wins; %>
+                <%- winstotal %> </span> 
+                Losses: <span>
+                <% let losses = 0; %>
+                <% winlosses.forEach(function(winloss){ %>                                    
+                    <% if(winloss.defeat === 'on') { %>
+                        <% losses += 1; %>
+                    <% } else { %>
+                        <% null %>
+                    <% } %>                                    
+                <% }) %>
+                <% let lossestotal = losses; %>
+                <%- lossestotal %>
+                </span>
+            </h4>
+        </div>
+        <!-- <p class="lead">
+            <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+        </p> -->
+    </div>
+</div>
+<%- include("partials/newrbgbtn") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 loginbox">
+            <form action="/register" method="POST">
+                <input type="text" placeholder="Username" name="username">
+                <input type="password" placeholder="Password" name="password"><br>
+                <button>Register</button>
+            </form>
+            <a href="/login"><button>Back to Log In</button></a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<%- include("partials/footer") %>

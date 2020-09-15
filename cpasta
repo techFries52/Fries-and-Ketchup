@@ -1,0 +1,12 @@
+            <% winlosses.forEach(function(winloss){ %>   
+            
+            <div class="col-lg-8 recentbgdiv">
+                <a href="match/<%= winloss._id %>">
+                    <h2>
+                        <%= winloss.bgs %>
+                    </h2>
+                    <span><%= winloss.created.toDateString() %></span></a>
+            </div> 
+
+
+            
