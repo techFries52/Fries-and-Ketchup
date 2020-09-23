@@ -399,7 +399,7 @@ h2 {
 }
 
 .winlosstopcont {
-    margin: 25px auto;
+    margin: 25px;
 }
 
 .pteamcol {
@@ -452,7 +452,7 @@ h2 {
 .submitrow {
     justify-content: center;
     text-align: center;
-    margin-top: -175px;
+    margin-top: 90px;
 }
 
 .custom-select {

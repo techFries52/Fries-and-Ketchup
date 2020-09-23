@@ -10,3 +10,59 @@
 
 
             
+
+
+
+                                <% winlosses.forEach(function(winloss){ %>
+                                    <% let i = 0; %>
+                                    
+                                    <% if(winloss.bgs === 'Warsong Gulch' && winloss.victory === 'on') { %>
+                                        <% i += 1; %>
+                                    <% } else { %>
+                                        <% console.log('loss') %>
+                                    <% } %>
+                                    <% let total = i; %>
+                                    <%- total %>
+                                <% }) %>
+
+
+                                <% for (let i = 0; i <= winlosses.length; i++) { %>
+                                    <% let x = 0; %>
+                                    <% if(winlosses.bgs === 'Warsong Gulch' && winlosses.victory === 'on') { %>
+                                        <% x += 1 %>
+                                        <% console.log('added 1') %>
+                                    <% } else { %>
+                                        <% console.log(winlosses.bgs) %>
+                                    <% } %>
+                                    <% x %>
+                                <% } %>
+
+
+
+                                jessej alauererneshahha;lakjsherlkjerjkUjeuUUIIOOIUjajwhehas;lkdjhf;aslkerhhhehsjkhas asdf
+                                asoikshjeljhas;elfja;sdlkfjas;ldgikausdgiuiguuawheharehwar;awejht;arlgbiuajsdgovjahweso;FHV;AOWSKEhjfnv;ALWKESfngjma;'elrkghba
+                                dsfghna;sdkjlfgnb'aldksfgja;lskdjgvasdfh
+                                asdflgkjas;dlfkajs;dlkgfdsguvuuuhehr;asdlkgja;sldkfja;sldfja;sldkfja;'sdlfja'roghibjaqe'pirhbgjAE
+                                RS){gbohijkpA
+                                Eghrb[lakjsherlkjerjkUjeuUUIIOOIUjajwhehasaeGHJBU
+                                PGJb
+                                pwer$GHJaoreiwhjgal;ekjrhg;alkejrhg;alkerhjgae
+                                rhjaeorighn;W'ELRKGHNA;LSKJGH;ALKSJHGA
+                                ewRGA;S/DFGHNAJSDFGHN;AKJDSHNG;AKJSDHGAE
+                                RGH'ADKSFNGH;ALDKSFNHG;AKLJDSFHGBN;ALKSDEJRGHBNA;KLDJFHA;LDKFHJNA;LDKFJHA;LDKFJHADFHADFHN;ADLFKHJAD
+                                FH;ADHJFHNJKNADF;HLKJNADF;KLGJHA;ELRKJHASDFH
+                                ADFGNALFSFVALHALLELEUJA
+                                
+                                jfdjfa
+                                
+                                ]}
+
+
+
+
+
+            <% if(user) { %>
+                <% <a href="/logout"><button class="btn btn-dark my-2 my-sm-0">Log Out</button></a>; %>
+            <% } else { %>
+                <% <a href="/login"><button class="btn btn-dark my-2 my-sm-0">Log In</button></a> %>
+            <% } %> 

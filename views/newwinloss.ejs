@@ -1,21 +1,8 @@
 <%- include("partials/header2") %>
 
-    <form action="/match" method="POST">
+    
         <div class="container newwinloss">                         
             <div class="align-items-center winlossformtop">
-                <div class="col-2 offset-5 winlosstopcont row">
-                    <label for="bg-select"></label>
-                    <select name="bgs" class="custom-select mr-sm-2" id="bg-select" autofocus required>
-                        <option value="Warsong Gulch">Warsong Gulch</option>
-                        <option value="Arathi Basin">Arathi Basin</option>
-                        <option value="Eye of the Storm">Eye of the Storm</option>
-                        <option value="Silvershard Mines">Silvershard Mines</option>
-                        <option value="Battle for Gilneas">Battle For Gilneas</option>
-                        <option value="Twin Peaks">Twin Peaks</option>
-                        <option value="Temple of Kotmogu">Temple of Kotmogu</option>
-                        <option value="Seething Shore">Seething Shore</option>
-                    </select>
-                </div>
                 <div class="container speccont">
                     <div class="row specrow justify-content-center">
                         <div class="col-12">
@@ -143,364 +130,80 @@
                             </div>
                         </div>
                     </div>
+                        <div class="row specrow winlossformtop justify-content-center">                    
+                            <div class="col-md-5 newwinlosscol">
+                                <form action="/match" method="POST">
+                                <h3>Your Team</h3>
+                                <p class="pteamcol">                            
+                                    <ul class="teamul">
+                                        <li class="teamsli"">
+                                            <input type="text" name="ally1">
+                                        </li>
+                                        <li class="teamsli"">
+                                            <input type="text" name="ally2">
+                                        </li>
+                                        <li class="teamsli"">
+                                            <input type="text" name="ally3">
+                                        </li>
+                                        <li class="teamsli"">
+                                            <input type="text" name="ally4">
+                                        </li>
+                                        <li class="teamsli"">
+                                            <input type="text" name="ally5">
+                                        </li>
+                                        <li class="teamsli"">
+                                            <input type="text" name="ally6">
+                                        </li>
+                                        <li class="teamsli"">
+                                            <input type="text" name="ally7">
+                                        </li>
+                                        <li class="teamsli"">
+                                            <input type="text" name="ally8">
+                                        </li>
+                                        <li class="teamsli"">
+                                            <input type="text" name="ally9">
+                                        </li>
+                                        <li class="teamsli"">
+                                            <input type="text" name="ally10">
+                                        </li>
+                                    </ul>
+                                </p>                                                 
+                            </div> 
+                        </div>      
+            <div class="row justify-content-center">                       
+                <div class="col-2  winlosstopcont row">
+                    <label for="bg-select"></label>
+                    <select name="bgs" class="custom-select mr-sm-2" id="bg-select" autofocus required>
+                        <option value="Warsong Gulch">Warsong Gulch</option>
+                        <option value="Arathi Basin">Arathi Basin</option>
+                        <option value="Eye of the Storm">Eye of the Storm</option>
+                        <option value="Silvershard Mines">Silvershard Mines</option>
+                        <option value="Battle for Gilneas">Battle For Gilneas</option>
+                        <option value="Twin Peaks">Twin Peaks</option>
+                        <option value="Temple of Kotmogu">Temple of Kotmogu</option>
+                        <option value="Seething Shore">Seething Shore</option>
+                    </select>
                 </div>
-                <div class="row specrow winlossformtop">
-                    <div class="col-md-5 newwinlosscol">
-                        <h3>Your Team</h3>
-                        <p class="pteamcol">                            
-                            <ul class="teamul">
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="ally1" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>                                    
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="ally2" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="ally3" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="ally4" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="ally5" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="ally6" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="ally7" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="ally8" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="ally9" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select></li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="ally10" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                            </ul>                           
-                        </p>
-                    </div>
-                    <div class="col-md-5 newwinlosscol">
-                        <h3>Enemy Team</h3>
-                        <p class="pteamcol">                            
-                            <ul class="teamul">
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="enemy1" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>                                    
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="enemy2" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="enemy3" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="enemy4" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="enemy5" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="enemy6" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="enemy7" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="enemy8" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="enemy9" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select></li>
-                                <li class="teamsli">
-                                    <select class="custom-select mr-sm-2" name="enemy10" autofocus required>
-                                        <option value="Deathknight">DeathKnight</option>
-                                        <option value="Demonhunter">Demon Hunter</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Hunter">Hunter</option>
-                                        <option value="Mage">Mage</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Pally">Paladin</option>
-                                        <option value="Priest">Priest</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Shaman">Shaman</option>
-                                        <option value="Lock">Warlock</option>
-                                        <option value="Warrior">Warrior</option>
-                                    </select>
-                                </li>
-                            </ul>                           
-                        </p>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-2 victorybox">
-                        <label for="victory">Victory</label>
-                        <input type="checkbox" name="victory">
-                        <label for="defeat">Deafeat</label>
-                        <input type="checkbox" name="defeat">
-                    </div>                    
-                </div>
-            </div>           
-        </div>
-        
-        
-        
-       
-
-        <div class="container">
-            <div class="row submitrow">
-                <button type="submit" class="col-sm-4 btn submitwinlossbtn">
-                    Submit
-                </button>                        
+              
+                <div class="col-2 victorybox">
+                    <label for="victory">Victory</label>
+                    <input type="checkbox" name="victory">
+                    <label for="defeat">Deafeat</label>
+                    <input type="checkbox" name="defeat">
+                </div>                    
+                
             </div>
         </div>
-    </form>
+    <div class="container">
+        <div class="row submitrow">
+            <button type="submit" class="col-sm-4 btn submitwinlossbtn">
+                Submit
+            </button>                        
+        </div>
+    </div>
+            
+           
+                            </form>
 
     
     

@@ -21,6 +21,16 @@ mongoose.connection.on('error' , err => {
 	console.log('error connecting to mongodb');
 });
 
+
+// Docker
+// mongoose.connect('mongodb://mongo:27017/Fries-and-Ketchup', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+// mongoose.connection.on('connected', () => {
+// 	console.log('connected to mongoDB');
+// });
+// mongoose.connection.on('error' , err => {
+// 	console.log('error connecting to mongodb');
+// });
+
 app.use(require('express-session')({
 	secret: 'PickleRick',
 	resave: false,
@@ -46,6 +56,7 @@ passport.deserializeUser(User.deserializeUser());
 // ===============================================================
 const Winloss = require('./models/winlossModule');
 const { request } = require('express');
+const team = require('./models/team');
 
 
 
@@ -71,12 +82,19 @@ app.get('/index', function(req, res) {
 			res.render('index', {winlosses: winlosses});
 		}
 	})
+	
 	console.log('GET request to index');
 });
 
 app.get('/members', function(req, res) {
+	Winloss.find({}, function(err,winlosses){
+		if(err) {
+			console.log(err);
+		} else {
+			res.render('members', {winlosses: winlosses});
+		}
+	})
 	console.log('GET request to members');
-	res.render('members');
 });
 
 // app.get('/newwinloss', function(req, res) {
@@ -164,11 +182,12 @@ app.post('/register', function(req, res){
 })
 
 app.get('/match/new',isLoggedIn, function(req, res) {
-	console.log('GET request to winloss/new');
+	
 	res.render('newwinloss');
+	console.log('GET request to winloss/new');
 })
 
-app.get('/match/:id',isLoggedIn, function(req, res) {
+app.get('/match/:id', function(req, res) {
 	Winloss.findById(req.params.id, function(err, winlosses){
 		if(err){
 			console.log(err);
