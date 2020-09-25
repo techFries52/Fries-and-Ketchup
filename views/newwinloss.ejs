@@ -194,6 +194,7 @@
                 
             </div>
         </div>
+
     <div class="container">
         <div class="row submitrow">
             <button type="submit" class="col-sm-4 btn submitwinlossbtn">
@@ -201,9 +202,10 @@
             </button>                        
         </div>
     </div>
-            
+    <input type="hidden" name="user[username]" value="<%= currentUser.username %>">
+    <input type="hidden" name="user[id]" value="<%= currentUser._id %>">
            
-                            </form>
+                                </form>
 
     
     

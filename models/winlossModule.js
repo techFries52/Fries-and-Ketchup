@@ -15,7 +15,14 @@ const winlossSchema = new mongoose.Schema({
 	ally10: String,
 	victory: String,
 	defeat: String,
-	created: {type: Date, default: Date.now}
+	created: {type: Date, default: Date.now},
+	user: {
+		id: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "User"
+		},
+		username: String
+	}
 });
 const Winloss = mongoose.model('Winloss', winlossSchema);
 
