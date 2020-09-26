@@ -3,9 +3,9 @@
     <div class="jumboContainer">
         <div class="jumbotron text-center">
             <h1 class="display-3">Fries and Ketchup</h1>
-            <div class="container">
-                <h2 class="lead">User Page</h2>
-            </div>
+            <!-- <div class="container">
+               
+            </div> -->
             <hr class="my-2">
             <div class="container">
                 <h4 id="jumboPara" class="floatLeft">Games Played: <span><%- winlosses.length %> </span>
@@ -53,37 +53,84 @@
                         <div class="row justify-content-center">             
                             <div class="col-lg-8 recentbgdiv">
                                 
-                                <img src="../css/images/propicph.png" alt=""> <br>
-                                    
-                                <h2>
-                                   <%= currentUser.username %>
-                                </h2>
-                                    
-                                <p>Member since <%= currentUser.created.toDateString() %></p>
-                                <p>
+                                <h1><%= currentUser.username %></h1>
+                                <% winlosses.forEach(function(winloss){ %>
+                                    <% let id = winloss.user.id.toString(); %>
+                                    <% let submitted = 0; %>
                                     <% let submittedVictory = 0; %>
                                     <% let submittedDefeat = 0; %>
-                                    <% let submittedTotal = 0; %>
-                                    <% winlosses.forEach(function(winloss){ %>
-                                        <% if(winloss.user.id === currentUser._id){ %>
-                                            <% submittedTotal += 1; %>                                             
-                                            <% if(winloss.victory === "on") { %>
-                                                <% submittedVictory += 1; %>
-                                            <% } else { %>
-                                                <% submittedDefeat += 1; %>
-                                            <% } %>
+                                    <% if(id == currentUser._id) { %>
+                                        <% submitted += 1; %>
+                                        <% if(winloss.victory === 'on') { %>
+                                            <% submittedVictory += 1; %>
                                         <% } else { %>
-                                            <% null %>
+                                            <% submittedDefeat += 1; %>
                                         <% } %>
-                                        
-                                    <% }) %>
-                                    <span> Victories: <%= submittedVictory %></span>
-                                    <span> Defeats: <%= submittedDefeat %></span>
-                                    <span> Total: <%= submittedTotal %></span>
-                                </p>
+                                        <p>
+                                            Total Submitted: <%= submitted %> <br>
+                                            Victory: <%= submittedVictory %>    Defeat: <%= submittedDefeat %>
+                                        </p>
+                                    <% } else { %>
+                                        <p>No Games Played</p>
+                                    <% } %>
+                                <% }); %>                              
                             </div>                          
                         </div>
-                    
+                        <div class="row">
+                            <% toons.forEach(function(toon){ %>                               
+                                <% if(toon.user.username === currentUser.username){ %>
+                                    
+                                    <div class="col-lg-3 mb-3">
+                                        <a href="character/<%= toon._id %>">
+                                            <div class="card toonSmall">
+                                                <img class="card-img-top" src="../css/images/Leathel.png" alt="#">
+                                            <div class="card-body">
+                                                <h3><%= toon.name %></h3>
+                                                <p><%= toon.class %></p>
+                                            </div>
+                                            </div>                        
+                                        </a> 
+                                    </div>                      
+                                <% } else { %>
+                                    <% console.log(toon.user + '    ' + currentUser) %>
+                                <% } %>
+                            <% }); %>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 newCharacter">
+                                <img src="../css/images/propicph.png" alt=""> <br>
+                                <h2 class="newCharh2">Create a New Character</h2>
+                                <form action="/character" method="POST">
+                                    <p>
+                                        <input type="text" name="name" placeholder="Name" class="mr-sm-2" required><br>
+                                        <select name="faction" id="faction" class="mr-sm-2" required>
+                                            <option value="Alliance">Alliance</option>
+                                            <option value="Horde">Horde</option>
+                                        </select><br>
+                                        <select name="class" id="class" class="mr-sm-2" required>
+                                            <option value="Deathknight">Deathknight</option>
+                                            <option value="Demon Hunter">Demon Hunter</option>
+                                            <option value="Druid">Druid</option>
+                                            <option value="Hunter">Hunter</option>
+                                            <option value="Mage">Mage</option>
+                                            <option value="Monk">Monk</option>
+                                            <option value="Paladin">Paladin</option>
+                                            <option value="Priest">Priest</option>
+                                            <option value="Rogue">Rogue</option>
+                                            <option value="Shaman">Shaman</option>
+                                            <option value="Warlock">Warlock</option>
+                                            <option value="Warrior">Warrior</option>
+                                        </select><br>
+                                        <input type="text" name="spec"><br>
+                                        <button>Create</button>
+                                    </p>
+                                <input type="hidden" name="user[username]" value="<%= currentUser.username %>">
+                                <input type="hidden" name="user[id]" value="<%= currentUser._id %>">                                         
+                                    
+                                </form>
+                            </div>
+                        </div>
+                        
                 </div>
                 
             </div>

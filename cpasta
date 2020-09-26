@@ -112,3 +112,21 @@
                                 <span> Victories: <%= submittedVictory %></span>
                                 <span> Defeats: <%= submittedDefeat %></span>
                                 <span> Total: <%= submittedTotal %></span>
+
+
+
+
+
+
+User.findByIdAndUpdate(req.params._id, function(err,users){
+		if(err){
+			console.log(err)
+		} else {
+			cloudinary.v2.uploader.upload(req.file.path, 
+    			function(error, result) {console.log(result, error)});
+			res.redirect('user/:id');
+			console.log('Post request to user/:id')
+		}
+	})
+
+

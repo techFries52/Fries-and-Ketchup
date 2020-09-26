@@ -8,16 +8,18 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const passportLocalMongoose = require('passport-local-mongoose');
 const { request } = require('express');
-const cors = require('cors');
 // ===============================================================
 // Schemas
 // ===============================================================
 const Winloss = require('./models/winlossModule');
-const team = require('./models/team');
 const User = require('./models/user');
+const Character = require('./models/character');
+const team = require('./models/team');
+
 const fs = require('fs'); 
 const path = require('path'); 
 const multer = require('multer');
+const cloudinary = require('cloudinary');
 
 // ===============================================================
 // Config
@@ -31,15 +33,28 @@ mongoose.connection.on('error' , err => {
 	console.log('error connecting to mongodb');
 });
 
-const storage = multer.diskStorage({ 
-    destination: "/uploads",
-    filename: (req, file, cb) => { 
-		cb(null, file.fieldname + '-' + Date.now() + 
-		path.extname(file.originalname));
-    } 
-}); 
-  
-const upload = multer({ storage: storage }).single("propic"); 
+
+const storage = multer.diskStorage({
+  filename: function(req, file, callback) {
+    callback(null, Date.now() + file.originalname);
+  }
+});
+const imageFilter = function (req, file, cb) {
+    // accept image files only
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+};
+const upload = multer({ storage: storage, fileFilter: imageFilter})
+
+
+
+cloudinary.config({ 
+  cloud_name: 'techFries', 
+  api_key: 272791148329751, 
+  api_secret: process.env.fnWmpIJncj3iI44A4Rkid7B1Q_Q
+});
 
 // Docker
 // mongoose.connect('mongodb://mongo:27017/Fries-and-Ketchup', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
@@ -107,6 +122,28 @@ app.get('/members', function(req, res) {
 	console.log('GET request to members(/user)');
 });
 
+app.get('/members/:id', function(req, res) {	
+	User.findById(req.params.id, function(err,user){
+		if (err) {
+			console.log(err);
+		} else {
+			Winloss.find({}, function(err,winlosses){
+				if(err) {
+					console.log(err);
+				} else {
+					Character.find({}, function(err,toons){
+						if(err){
+							console.log(err)
+						} else {
+							res.render('userPublic', { user: user, winlosses: winlosses, toons: toons, currentUser: req.user});
+						}
+					})
+				}
+			})
+		}
+	})	
+	console.log('GET request to members/:id ');
+});
 // app.get('/newwinloss', function(req, res) {
 // 	console.log('GET request to newwinloss');
 // 	res.render('newwinloss');
@@ -114,15 +151,22 @@ app.get('/members', function(req, res) {
 
 
 app.get('/user',isLoggedIn, function(req, res){
-	User.findById(req.params.id, function(err, user){
+	User.findById(req.params.id, function(err,user){
 		if (err) {
 			console.log(err);
-		} else {
+		} else {			
 			Winloss.find({}, function(err,winlosses){
 				if(err) {
 					console.log(err);
 				} else {
-					res.render('user', {winlosses: winlosses, currentUser: req.user});
+					Character.find({}, function(err,toons){
+						if(err){
+							console.log(err)
+						} else {
+							res.render('user', { user: user, winlosses: winlosses, toons: toons, currentUser: req.user});
+						}
+					})
+					
 				}
 			})
 		}
@@ -130,9 +174,9 @@ app.get('/user',isLoggedIn, function(req, res){
 	console.log('GET request to user');
 });
 
-
-app.get('/user/:id', function(req, res) {	
-	User.findById(req.params.id, function(err,users){
+app.get('/character/:id', function(req, res) {	
+	Character.findById(req.params.id, function(err,toon){
+		// const toon = Character.findById(req.params.id)
 		if (err) {
 			console.log(err);
 		} else {
@@ -140,23 +184,40 @@ app.get('/user/:id', function(req, res) {
 				if(err) {
 					console.log(err);
 				} else {
-					res.render('userPublic', { user: users, winlosses: winlosses, currentUser: req.user});
+					
+					console.log('character get request');
+					res.render('character', { toon: toon, winlosses: winlosses, currentUser: req.user});
 				}
 			})
-			// res.render('userPublic', {user: users, currentUser: req.user});
-			// Winloss.find({}, function(err,winlosses){
-			// 	if(err) {
-			// 		console.log(err);
-			// 	} else {
-			// 		console.log('req params id: ' +req.params._id)
-			// 		res.render('userPublic', {winlosses: winlosses, currentUser: req.user, users: users});
-			// 	}
-			// })
-			
+		}
+	})	
+	console.log('GET request to user/character');
+});
+
+app.get('/user/:id', function(req, res) {	
+	User.findById(req.params.id, function(err,user){
+		if (err) {
+			console.log(err);
+		} else {
+			Winloss.find({}, function(err,winlosses){
+				if(err) {
+					console.log(err);
+				} else {
+					Character.find({}, function(err,toons){
+						if(err){
+							console.log(err)
+						} else {
+							res.render('userPublic', { user: user, winlosses: winlosses, toons: toons, currentUser: req.user});
+						}
+					})
+				}
+			})
 		}
 	})	
 	console.log('GET request to user/:id ');
 });
+
+
 
 // app.get('/user',isLoggedIn, function(req, res) {
 // 	Winloss.find({}, function(err,winlosses){
@@ -225,20 +286,18 @@ app.post('/register', function(req, res){
 	User.register(new User({username: req.body.username}), req.body.password, function(err, user) {
 		if(err) {
 			console.log(err);
-			return res.render('register', {currentUser: req.user});
+			return res.redirect('register', {currentUser: req.user});
 		} else {
 			passport.authenticate('local')(req,res, function(){
-				res.redirect('user');
+				res.redirect('login');
 			});
 		};
 	});
 })
 
-app.get('/match/new',isLoggedIn, function(req, res) {
-	
+app.get('/match/new',isLoggedIn, function(req, res) {	
 	res.render('newwinloss', {currentUser: req.user});
 	console.log('GET request to winloss/new');
-	console.log(req.user);
 })
 
 app.get('/match/:id', function(req, res) {
@@ -269,22 +328,34 @@ app.get('/match/:id', function(req, res) {
 // 		}
 // 	});
 // })
-app.post('/user/:id', isLoggedIn, function(req, res) {
-	User.findByIdAndUpdate(req.params._id, function(err,users){
-		if(err){
-			console.log(err)
-		} else {
-			console.log(req.file)
-			res.redirect('user/:id');
-		}
-	})
-	
-	console.log('POST request made to user/:id');
-	
-	// img: { 
-	// 	data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)), 
-	// 	contentType: 'image/png'
-	// } 
+
+
+
+app.post('/character', isLoggedIn, function(req, res) {
+	let character = new Character(req.body, function(){
+		console.log('character created') 
+		next();
+	});
+	character.save();
+	console.log("character created2")
+	res.redirect('character/' + character._id);
+
+	// cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
+	// 	if(err) {
+	// 	  req.flash('error', err.message);
+	// 	  return res.redirect('user');
+	// 	}
+	// 	// add cloudinary url for the image to the campground object under image property
+	// 	req.body.campground.image = result.secure_url;
+	// 	// add image's public_id to campground object
+	// 	req.body.campground.imageId = result.public_id;
+	// 	// add author to campground
+	// 	req.body.campground.author = {
+	// 	  id: req.user._id,
+	// 	  username: req.user.username
+	// 	}
+	// });
+
 })
 
 // ===============================================================

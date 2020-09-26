@@ -52,41 +52,67 @@
                
                     <div class="row justify-content-center">             
                         <div class="col-lg-8 recentbgdiv">
-                            <p>
+                            
                             <img src="../css/images/propicph.png" alt=""> <br>
+                          
+                                
+
                             <h2>
                                 <%= user.username %>
                             </h2>
                                  
-                            <p>Member since <%= user.created.toDateString() %></p>
-
-                            </p>
-                            <p>
+                            <% winlosses.forEach(function(winloss){ %>
+                                <% let id = winloss.user.id.toString(); %>
+                                <% let submitted = 0; %>
                                 <% let submittedVictory = 0; %>
                                 <% let submittedDefeat = 0; %>
-                                <% let submittedTotal = 0; %>
-                                <% winlosses.forEach(function(winloss){ %>
-                                    <% if(winloss.user.id = user._id){ %>
-                                        <% submittedTotal += 1; %>                                             
-                                        <% if(winloss.victory === "on") { %>
-                                            <% submittedVictory += 1; %>
-                                        <% } else { %>
-                                            <% submittedDefeat += 1; %>
-                                        <% } %>
+                                <% if(id == user._id){ %>
+                                    <% submitted += 1; %>
+                                    <% if(winloss.victory === 'on') { %>
+                                        <% submittedVictory += 1; %>
                                     <% } else { %>
-                                        <% null %>
+                                        <% submittedDefeat += 1; %>
                                     <% } %>
-                                    
-                                <% }) %>
-                                <span> Victories: <%= submittedVictory %></span>
-                                <br>
-                                <span> Defeats: <%= submittedDefeat %></span>
-                                <br>
-                                <span> Total: <%= submittedTotal %></span>
-                            </p>
+                                    <p>
+                                        Total Submitted: <%= submitted %> <br>
+                                        Victory: <%= submittedVictory %>    Defeat: <%= submittedDefeat %>
+                                    </p>
+                                <% } else { %>
+                                    <p>No Games Played</p>
+                                <% } %>
+                            <% }) %>
+                            
+                            
+                            
                         </div>                          
                     </div>
-                
+                    <div class="row">
+
+                        
+
+
+
+
+
+
+                        <% toons.forEach(function(toon){ %>                                
+                            <% if(toon.user.username === user.username){ %>
+                                <div class="col-lg-3 mb-3">
+                                    <a href="character/<%= toon._id %>">
+                                        <div class="card toonSmall">
+                                            <img class="card-img-top" src="../css/images/Leathel.png" alt="#">
+                                        <div class="card-body">
+                                            <h3><%= toon.name %></h3>
+                                            <p><%= toon.class %></p>
+                                        </div>
+                                        </div>                        
+                                    </a> 
+                                </div>                      
+                            <% } else { %>
+                                <% console.log(toon.user + '    ' + currentUser) %>
+                            <% } %>
+                        <% }); %> 
+                    </div>                
             </div>
             
         </div>

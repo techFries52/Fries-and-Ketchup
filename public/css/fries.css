@@ -496,3 +496,27 @@ h2 {
     max-height: 300px;
     max-width: 300px;
 }
+/* 
+===============================================================
+===============================================================
+=============================================================== */
+
+
+
+.newCharacter {
+    padding-top: 20px;
+    color: #fafafa;
+    background-color: #2c2c2c;
+    border-radius: 27px;
+    margin-bottom: 20px;
+}
+
+.newCharh2 {
+    padding-top: 25px;
+}
+
+.toonSmall { 
+    font-family: 'Aclonica', sans-serif;
+    color: #fafafa;
+    background-color: #2c2c2c;
+}

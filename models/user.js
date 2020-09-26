@@ -5,11 +5,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const UserSchema = new mongoose.Schema({
     username: String,
     password: String,
-    propic: {
-        data: Buffer,
-        contentType: String
-    },
-    created: {type: Date, default: Date.now},
+    created: {type: Date, default: Date.now}
 });
 
 UserSchema.plugin(passportLocalMongoose);

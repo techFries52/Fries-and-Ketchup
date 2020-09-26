@@ -1,0 +1,72 @@
+<%- include("partials/header2") %>
+<div class="jumboContainer">
+    <div class="jumbotron text-center">
+        <h1 class="display-3">Fries and Ketchup</h1>
+        <div class="container">
+            <h2 class="lead">User Public</h2>
+        </div>
+        <hr class="my-2">
+        <div class="container">
+            <h4 id="jumboPara" class="floatLeft">Games Played: <span><%- winlosses.length %> </span>
+                <h4 id="jumboPara" class="floatRight">Wins: <span>
+                    <% let wins = 0; %>
+                    <% winlosses.forEach(function(winloss){ %>                                    
+                        <% if(winloss.victory === 'on') { %>
+                            <% wins += 1; %>
+                        <% } else { %>
+                            <% null %>
+                        <% } %>                                    
+                    <% }) %>
+                    <% let winstotal = wins; %>
+                    <%- winstotal %> </span> 
+                    Losses: <span>
+                    <% let losses = 0; %>
+                    <% winlosses.forEach(function(winloss){ %>                                    
+                        <% if(winloss.defeat === 'on') { %>
+                            <% losses += 1; %>
+                        <% } else { %>
+                            <% null %>
+                        <% } %>                                    
+                    <% }) %>
+                    <% let lossestotal = losses; %>
+                    <%- lossestotal %>
+                    </span>
+                </h4>
+        </div>
+        <!-- <p class="lead">
+            <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+        </p> -->
+    </div>
+</div>
+
+
+
+<%- include("partials/newrbgbtn") %>
+
+<div class="container">
+    <div class="row usercont justify-content-center">
+        <div class="col-md-12">
+            <div class="container recentbgs">
+               
+                    <div class="row justify-content-center">             
+                        <div class="col-lg-8 recentbgdiv">
+                            <p>
+                            <img src="../css/images/propicph.png" alt=""> <br>
+                            
+                            <h2>
+                                <%= toon.name %>
+                            </h2>
+                            <h4>
+                                <%= toon.faction %> <br>
+                                <%= toon.class %>
+                            </h4>  
+                            </p>
+                            <p>Character of <%= toon.user.username %></p>
+                        </div>                          
+                    </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
