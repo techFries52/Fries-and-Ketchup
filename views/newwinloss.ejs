@@ -135,37 +135,278 @@
                                 <form action="/match" method="POST">
                                 <h3>Your Team</h3>
                                 <p class="pteamcol">                            
-                                    <ul class="teamul">
+                                    <ul class="teamul">                                        
                                         <li class="teamsli"">
-                                            <input type="text" name="ally1">
+                                            <input type="text" name="ally1" list="characters1" />
+                                            <datalist id="characters1" size="10">
+                                                
+                                                <% users.sort(function(a,b){ %>                                                    
+                                                    <% let nameA = a.username.toUpperCase(); %>
+                                                    <% let nameB = b.username.toUpperCase(); %>
+                                                    <% if (nameA < nameB) { %>
+                                                        <% return -1; %>                                                        
+                                                    <% } %>
+                                                    <% if (nameA > nameB) { %>
+                                                        <% return 1; %>                                                        
+                                                    <% } %>
+                                                    <% return 0; %>                                                    
+                                                <% }).forEach(function(user){ %>
+                                                    <option value="<%= user.username %>" class="dropdown-menu"><%= user.username %></option>
+                                                    
+                                                    <% toons.sort().forEach(function(toon) { %>                                                                
+                                                        <% if(toon.user.username === user.username) { %>
+                                                            <option value="<%= toon.name %>" class="dropdown-item"><%= toon.name %></option> 
+                                                        <% } else { %>
+                                                            <% null %>
+                                                        <% } %>
+                                                    <% }) %>                                                                                                                                          
+                                                <% }); %>
+                                            </datalist>
                                         </li>
                                         <li class="teamsli"">
-                                            <input type="text" name="ally2">
+                                            <input type="text" name="ally2" list="characters2" />
+                                            <datalist id="characters2" size="10">
+                                                
+                                                <% users.sort(function(a,b){ %>                                                    
+                                                    <% let nameA = a.username.toUpperCase(); %>
+                                                    <% let nameB = b.username.toUpperCase(); %>
+                                                    <% if (nameA < nameB) { %>
+                                                        <% return -1; %>                                                        
+                                                    <% } %>
+                                                    <% if (nameA > nameB) { %>
+                                                        <% return 1; %>                                                        
+                                                    <% } %>
+                                                    <% return 0; %>                                                    
+                                                <% }).forEach(function(user){ %>
+                                                    <option value="<%= user.username %>" class="dropdown-menu"><%= user.username %></option>
+                                                    
+                                                    <% toons.sort().forEach(function(toon) { %>                                                                
+                                                        <% if(toon.user.username === user.username) { %>
+                                                            <option value="<%= toon.name %>" class="dropdown-item"><%= toon.name %></option> 
+                                                        <% } else { %>
+                                                            <% null %>
+                                                        <% } %>
+                                                    <% }) %>                                                                                                                                          
+                                                <% }); %>
+                                            </datalist>
                                         </li>
                                         <li class="teamsli"">
-                                            <input type="text" name="ally3">
+                                            <input type="text" name="ally3" list="characters3" />
+                                            <datalist id="characters3" size="10">
+                                                
+                                                <% users.sort(function(a,b){ %>                                                    
+                                                    <% let nameA = a.username.toUpperCase(); %>
+                                                    <% let nameB = b.username.toUpperCase(); %>
+                                                    <% if (nameA < nameB) { %>
+                                                        <% return -1; %>                                                        
+                                                    <% } %>
+                                                    <% if (nameA > nameB) { %>
+                                                        <% return 1; %>                                                        
+                                                    <% } %>
+                                                    <% return 0; %>                                                    
+                                                <% }).forEach(function(user){ %>
+                                                    <option value="<%= user.username %>" class="dropdown-menu"><%= user.username %></option>
+                                                    
+                                                    <% toons.sort().forEach(function(toon) { %>                                                                
+                                                        <% if(toon.user.username === user.username) { %>
+                                                            <option value="<%= toon.name %>" class="dropdown-item"><%= toon.name %></option> 
+                                                        <% } else { %>
+                                                            <% null %>
+                                                        <% } %>
+                                                    <% }) %>                                                                                                                                          
+                                                <% }); %>
+                                            </datalist>
                                         </li>
                                         <li class="teamsli"">
-                                            <input type="text" name="ally4">
+                                            <input type="text" name="ally4" list="characters4" />
+                                            <datalist id="characters4" size="10">
+                                                
+                                                <% users.sort(function(a,b){ %>                                                    
+                                                    <% let nameA = a.username.toUpperCase(); %>
+                                                    <% let nameB = b.username.toUpperCase(); %>
+                                                    <% if (nameA < nameB) { %>
+                                                        <% return -1; %>                                                        
+                                                    <% } %>
+                                                    <% if (nameA > nameB) { %>
+                                                        <% return 1; %>                                                        
+                                                    <% } %>
+                                                    <% return 0; %>                                                    
+                                                <% }).forEach(function(user){ %>
+                                                    <option value="<%= user.username %>" class="dropdown-menu"><%= user.username %></option>
+                                                    
+                                                    <% toons.sort().forEach(function(toon) { %>                                                                
+                                                        <% if(toon.user.username === user.username) { %>
+                                                            <option value="<%= toon.name %>" class="dropdown-item"><%= toon.name %></option> 
+                                                        <% } else { %>
+                                                            <% null %>
+                                                        <% } %>
+                                                    <% }) %>                                                                                                                                          
+                                                <% }); %>
+                                            </datalist>
                                         </li>
                                         <li class="teamsli"">
-                                            <input type="text" name="ally5">
+                                            <input type="text" name="ally5" list="characters5" />
+                                            <datalist id="characters5" size="10">
+                                                
+                                                <% users.sort(function(a,b){ %>                                                    
+                                                    <% let nameA = a.username.toUpperCase(); %>
+                                                    <% let nameB = b.username.toUpperCase(); %>
+                                                    <% if (nameA < nameB) { %>
+                                                        <% return -1; %>                                                        
+                                                    <% } %>
+                                                    <% if (nameA > nameB) { %>
+                                                        <% return 1; %>                                                        
+                                                    <% } %>
+                                                    <% return 0; %>                                                    
+                                                <% }).forEach(function(user){ %>
+                                                    <option value="<%= user.username %>" class="dropdown-menu"><%= user.username %></option>
+                                                    
+                                                    <% toons.sort().forEach(function(toon) { %>                                                                
+                                                        <% if(toon.user.username === user.username) { %>
+                                                            <option value="<%= toon.name %>" class="dropdown-item"><%= toon.name %></option> 
+                                                        <% } else { %>
+                                                            <% null %>
+                                                        <% } %>
+                                                    <% }) %>                                                                                                                                          
+                                                <% }); %>
+                                            </datalist>
                                         </li>
                                         <li class="teamsli"">
-                                            <input type="text" name="ally6">
+                                            <input type="text" name="ally6" list="characters6" />
+                                            <datalist id="characters6" size="10">
+                                                
+                                                <% users.sort(function(a,b){ %>                                                    
+                                                    <% let nameA = a.username.toUpperCase(); %>
+                                                    <% let nameB = b.username.toUpperCase(); %>
+                                                    <% if (nameA < nameB) { %>
+                                                        <% return -1; %>                                                        
+                                                    <% } %>
+                                                    <% if (nameA > nameB) { %>
+                                                        <% return 1; %>                                                        
+                                                    <% } %>
+                                                    <% return 0; %>                                                    
+                                                <% }).forEach(function(user){ %>
+                                                    <option value="<%= user.username %>" class="dropdown-menu"><%= user.username %></option>
+                                                    
+                                                    <% toons.sort().forEach(function(toon) { %>                                                                
+                                                        <% if(toon.user.username === user.username) { %>
+                                                            <option value="<%= toon.name %>" class="dropdown-item"><%= toon.name %></option> 
+                                                        <% } else { %>
+                                                            <% null %>
+                                                        <% } %>
+                                                    <% }) %>                                                                                                                                          
+                                                <% }); %>
+                                            </datalist>
                                         </li>
                                         <li class="teamsli"">
-                                            <input type="text" name="ally7">
+                                            <input type="text" name="ally7" list="characters7" />
+                                            <datalist id="characters7" size="10">
+                                                
+                                                <% users.sort(function(a,b){ %>                                                    
+                                                    <% let nameA = a.username.toUpperCase(); %>
+                                                    <% let nameB = b.username.toUpperCase(); %>
+                                                    <% if (nameA < nameB) { %>
+                                                        <% return -1; %>                                                        
+                                                    <% } %>
+                                                    <% if (nameA > nameB) { %>
+                                                        <% return 1; %>                                                        
+                                                    <% } %>
+                                                    <% return 0; %>                                                    
+                                                <% }).forEach(function(user){ %>
+                                                    <option value="<%= user.username %>" class="dropdown-menu"><%= user.username %></option>
+                                                    
+                                                    <% toons.sort().forEach(function(toon) { %>                                                                
+                                                        <% if(toon.user.username === user.username) { %>
+                                                            <option value="<%= toon.name %>" class="dropdown-item"><%= toon.name %></option> 
+                                                        <% } else { %>
+                                                            <% null %>
+                                                        <% } %>
+                                                    <% }) %>                                                                                                                                          
+                                                <% }); %>
+                                            </datalist>
                                         </li>
                                         <li class="teamsli"">
-                                            <input type="text" name="ally8">
+                                            <input type="text" name="ally8" list="characters8" />
+                                            <datalist id="characters8" size="10">
+                                                
+                                                <% users.sort(function(a,b){ %>                                                    
+                                                    <% let nameA = a.username.toUpperCase(); %>
+                                                    <% let nameB = b.username.toUpperCase(); %>
+                                                    <% if (nameA < nameB) { %>
+                                                        <% return -1; %>                                                        
+                                                    <% } %>
+                                                    <% if (nameA > nameB) { %>
+                                                        <% return 1; %>                                                        
+                                                    <% } %>
+                                                    <% return 0; %>                                                    
+                                                <% }).forEach(function(user){ %>
+                                                    <option value="<%= user.username %>" class="dropdown-menu"><%= user.username %></option>
+                                                    
+                                                    <% toons.sort().forEach(function(toon) { %>                                                                
+                                                        <% if(toon.user.username === user.username) { %>
+                                                            <option value="<%= toon.name %>" class="dropdown-item"><%= toon.name %></option> 
+                                                        <% } else { %>
+                                                            <% null %>
+                                                        <% } %>
+                                                    <% }) %>                                                                                                                                          
+                                                <% }); %>
+                                            </datalist>
                                         </li>
                                         <li class="teamsli"">
-                                            <input type="text" name="ally9">
+                                            <input type="text" name="ally9" list="characters9" />
+                                            <datalist id="characters9" size="10">
+                                                
+                                                <% users.sort(function(a,b){ %>                                                    
+                                                    <% let nameA = a.username.toUpperCase(); %>
+                                                    <% let nameB = b.username.toUpperCase(); %>
+                                                    <% if (nameA < nameB) { %>
+                                                        <% return -1; %>                                                        
+                                                    <% } %>
+                                                    <% if (nameA > nameB) { %>
+                                                        <% return 1; %>                                                        
+                                                    <% } %>
+                                                    <% return 0; %>                                                    
+                                                <% }).forEach(function(user){ %>
+                                                    <option value="<%= user.username %>" class="dropdown-menu"><%= user.username %></option>
+                                                    
+                                                    <% toons.sort().forEach(function(toon) { %>                                                                
+                                                        <% if(toon.user.username === user.username) { %>
+                                                            <option value="<%= toon.name %>" class="dropdown-item"><%= toon.name %></option> 
+                                                        <% } else { %>
+                                                            <% null %>
+                                                        <% } %>
+                                                    <% }) %>                                                                                                                                          
+                                                <% }); %>
+                                            </datalist>
                                         </li>
                                         <li class="teamsli"">
-                                            <input type="text" name="ally10">
+                                            <input type="text" name="ally10" list="characters10" />
+                                            <datalist id="characters10" size="10">
+                                                
+                                                <% users.sort(function(a,b){ %>                                                    
+                                                    <% let nameA = a.username.toUpperCase(); %>
+                                                    <% let nameB = b.username.toUpperCase(); %>
+                                                    <% if (nameA < nameB) { %>
+                                                        <% return -1; %>                                                        
+                                                    <% } %>
+                                                    <% if (nameA > nameB) { %>
+                                                        <% return 1; %>                                                        
+                                                    <% } %>
+                                                    <% return 0; %>                                                    
+                                                <% }).forEach(function(user){ %>
+                                                    <option value="<%= user.username %>" class="dropdown-menu"><%= user.username %></option>
+                                                    
+                                                    <% toons.sort().forEach(function(toon) { %>                                                                
+                                                        <% if(toon.user.username === user.username) { %>
+                                                            <option value="<%= toon.name %>" class="dropdown-item"><%= toon.name %></option> 
+                                                        <% } else { %>
+                                                            <% null %>
+                                                        <% } %>
+                                                    <% }) %>                                                                                                                                          
+                                                <% }); %>
+                                            </datalist>
                                         </li>
+
                                     </ul>
                                 </p>                                                 
                             </div> 

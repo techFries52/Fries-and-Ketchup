@@ -144,6 +144,29 @@ app.get('/members/:id', function(req, res) {
 	})	
 	console.log('GET request to members/:id ');
 });
+
+app.get('/members/character/:id', function(req, res) {	
+	User.findById(req.params.id, function(err,user){
+		if (err) {
+			console.log(err);
+		} else {
+			Winloss.find({}, function(err,winlosses){
+				if(err) {
+					console.log(err);
+				} else {
+					Character.findById(req.paramas.id, function(err,toons){
+						if(err){
+							console.log(err)
+						} else {
+							res.render('userPublic', { user: user, winlosses: winlosses, toons: toons, currentUser: req.user});
+						}
+					})
+				}
+			})
+		}
+	})	
+	console.log('GET request to members/character/:id ');
+});
 // app.get('/newwinloss', function(req, res) {
 // 	console.log('GET request to newwinloss');
 // 	res.render('newwinloss');
@@ -218,25 +241,6 @@ app.get('/user/:id', function(req, res) {
 });
 
 
-
-// app.get('/user',isLoggedIn, function(req, res) {
-// 	Winloss.find({}, function(err,winlosses){
-// 		if(err) {
-// 			console.log(err);
-// 		} else {
-// 			User.find({}, function(err,user){
-// 				if(err) {
-// 					console.log(err);
-// 				} else {
-// 					res.render('user', {winlosses: winlosses, currentUser: req.user});
-// 				}
-// 			})
-// 		}
-// 	})
-	
-// 	console.log('GET request to user');
-// });
-
 app.get('/register', function(req, res) {
 	Winloss.find({}, function(err,winlosses){
 		if(err) {
@@ -295,8 +299,21 @@ app.post('/register', function(req, res){
 	});
 })
 
-app.get('/match/new',isLoggedIn, function(req, res) {	
-	res.render('newwinloss', {currentUser: req.user});
+app.get('/match/new',isLoggedIn, function(req, res) {
+	Character.find({}, function(err,toons){
+		if(err){
+			console.log(err)
+		} else {
+			User.find({}, function(err,users){
+				if(err){
+					console.log(err)
+				} else {
+					res.render('newwinloss', { toons: toons, currentUser: req.user, users: users});
+				}
+			})
+			
+		}
+	})
 	console.log('GET request to winloss/new');
 })
 
