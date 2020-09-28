@@ -45,13 +45,13 @@
 
 
 
-    <div class="container">
+    <div class="container marginbtm">
         <div class="row usercont justify-content-center">
             <div class="col-md-12">
-                <div class="container recentbgs">
+                <div class="container userdivs">
                    
-                        <div class="row justify-content-center">             
-                            <div class="col-lg-8 recentbgdiv">
+                        <div class="row justify-content-center marginbtm">             
+                            <div class="col-lg-8 recentbgdiv yellowlinesBTM">
                                 
                                 <h1><%= currentUser.username %></h1>
                                 <% let submitted = 0; %>
@@ -85,7 +85,7 @@
                                     
                                     <div class="col-lg-3 mb-3">
                                         <a href="character/<%= toon._id %>">
-                                            <div class="card toonSmall">
+                                            <div class="card toonSmall yellowlinesBTM">
                                                 <img class="card-img-top" src="../css/images/Leathel.png" alt="#">
                                             <div class="card-body">
                                                 <h3><%= toon.name %></h3>
@@ -100,16 +100,13 @@
                             <% }); %>
                         </div>
                         <div class="row justify-content-center">
-                            <div class="col-md-4 newCharacter">
+                            <div class="col-md-4 newCharacter yellowlinesBTM">
                                 <img src="../css/images/propicph.png" alt=""> <br>
                                 <h2 class="newCharh2">Create a New Character</h2>
                                 <form action="/character" method="POST">
                                     <p>
-                                        <input type="text" name="name" placeholder="Name" class="mr-sm-2" required><br>
-                                        <select name="faction" id="faction" class="mr-sm-2" required>
-                                            <option value="Alliance">Alliance</option>
-                                            <option value="Horde">Horde</option>
-                                        </select><br>
+                                        <input type="text" name="name" placeholder="Name" class="mr-sm-2" required>
+                                        <br>
                                         <select name="class" id="class" class="mr-sm-2" required>
                                             <option value="Deathknight">Deathknight</option>
                                             <option value="Demon Hunter">Demon Hunter</option>
@@ -124,7 +121,10 @@
                                             <option value="Warlock">Warlock</option>
                                             <option value="Warrior">Warrior</option>
                                         </select><br>
-                                        <input type="text" name="spec"><br>
+                                        <select name="faction" id="faction" class="mr-sm-2" required>
+                                            <option value="Alliance">Alliance</option>
+                                            <option value="Horde">Horde</option>
+                                        </select> <br>
                                         <button>Create</button>
                                     </p>
                                 <input type="hidden" name="user[username]" value="<%= currentUser.username %>">

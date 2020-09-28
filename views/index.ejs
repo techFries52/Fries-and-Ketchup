@@ -4,7 +4,7 @@
     <div class="jumbotron text-center">
         <h1 class="display-3">Fries and Ketchup</h1>
         <div class="container">
-            <h2 class="lead">Landing Page</h2>
+            <h2 class="lead">RBG Community</h2>
         </div>
         <hr class="my-2">
         <div class="container">
@@ -59,10 +59,9 @@
                     <% } else { %>
                         <h3 class="red"> Defeat</h3>
                     <% } %></span>
-                </a>
-                <a href="user/<%= winloss.user.id %>">
-                    <h5>Submitted by: <%= winloss.user.username %></h5>
-                </a>
+                </a>              
+                <h5>Submitted by: <a href="/user/<%= winloss.user.id %>"><%= winloss.user.username %></a></h5>
+                
                
             </div>                          
         <% }) %>

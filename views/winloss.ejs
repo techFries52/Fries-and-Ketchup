@@ -4,7 +4,7 @@
     <div class="jumboContainer">
         <div class="jumbotron text-center">
             <h1 class="display-3">Fries and Ketchup</h1>
-            <h2 class="lead">Win/Loss Tracker</h2>
+            <h2 class="lead">Matches</h2>
             <hr class="my-2">
             <div class="container">
                 <h4 id="jumboPara" class="floatLeft">Games Played: <span><%- winlosses.length %> </span></h4>
@@ -396,7 +396,7 @@
                     <% } else { %>
                         <h3 class="red"> Defeat</h3>
                     <% } %></span></a>
-                    <h5>Submitted by: <%= winloss.user.username %></h5>
+                    <h5>Submitted by: <a href="/user/<%= winloss.user.id %>"><%= winloss.user.username %></a> </h5>
             </div>                          
         </div>
     <% }) %>
