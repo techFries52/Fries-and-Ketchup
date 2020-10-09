@@ -548,3 +548,60 @@ a {
 h1 {
     font-family: 'Metal Mania', cursive;
 }
+
+.deathknight {
+    color: #c20000;
+}
+
+.demonhunter {
+    color: #7000a3;
+}
+
+.druid {
+    color: #d34d00;
+}
+
+.hunter {
+    color: #36d430;
+}
+
+.mage {
+    color: #07cfe9;
+}
+
+.monk {
+    color: #04e08c;
+}
+
+.paladin {
+    color: #ff67ff;
+}
+
+.priest {
+    color: #e4e4e4;
+}
+
+.rogue {
+    color: #f2f53b;
+}
+
+.shaman {
+    color: #1d21ff;
+}
+
+.warlock {
+    color: #a748e6;
+}
+
+.warrior {
+    color: #693415;
+}
+
+.factionSymbol {
+    
+    margin-right: 10px;
+    margin-bottom: -70px;    
+    z-index: 1;
+    text-align: right;
+    border: none;
+}

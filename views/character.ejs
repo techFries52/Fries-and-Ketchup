@@ -51,10 +51,16 @@
                             <img src="../css/images/propicph.png" alt=""> <br>
                             
                             <h2>
+                                
                                 <%= toon.name %>
                             </h2>
+                            <% if(toon.faction === "Alliance"){ %>
+                                <span><img src="/css/images/Alliance-symbol-1.png" alt=""></span> <br>
+                                <%= toon.faction %>
+                            <% } else { %>
+                                <span><img src="/css/images/Horde-symbol-1.png" alt=""></span> <br>
+                            <% } %> <br>
                             <h4>
-                                <%= toon.faction %> <br>
                                 <%= toon.class %>
                             </h4>  
                             </p>

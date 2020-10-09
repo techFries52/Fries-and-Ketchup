@@ -53,10 +53,12 @@
                     <h2>
                         <%= winloss.bgs %>
                     </h2>
-                    <span><%= winloss.created.toDateString() %></span>
+                    <span><%= winloss.created.toDateString() %></span> <br>
                     <span><% if(winloss.victory === "on") { %>
+                        <img src="css/images/Alliance-symbol-1.png" alt=""> <br>
                         <h3 class="green">Victory</h3>
                     <% } else { %>
+                        <img src="css/images/Horde-symbol-1.png" alt=""> <br>
                         <h3 class="red"> Defeat</h3>
                     <% } %></span>
                 </a>              
