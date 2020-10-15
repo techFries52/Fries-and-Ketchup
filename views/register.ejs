@@ -44,10 +44,11 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4 loginbox">
-            <form action="/register" method="POST">
-                <!-- <input type="file" id="propic" name="propic" accept="image/*">  -->
+            <form action="/register" method="POST"  enctype="multipart/form-data">
+                
                 <input type="text" placeholder="Username" name="username">
                 <input type="password" placeholder="Password" name="password"> 
+                <input type="file" name="Image" enctype="multipart/form-data">
                 <br>
                 <button>Register</button>
             </form>

@@ -1,3 +1,6 @@
+if(process.env.NODE_ENV !== 'production') {
+	require('dotenv').config();
+}
 const expressSanitizer = require('express-sanitizer')
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
@@ -19,7 +22,9 @@ const team = require('./models/team');
 const fs = require('fs'); 
 const path = require('path'); 
 const multer = require('multer');
-const cloudinary = require('cloudinary');
+const { storage } = require('./cloudinary');
+const upload = multer({ storage });
+
 
 // ===============================================================
 // Config
@@ -34,11 +39,7 @@ mongoose.connection.on('error' , err => {
 });
 
 
-const storage = multer.diskStorage({
-  filename: function(req, file, callback) {
-    callback(null, Date.now() + file.originalname);
-  }
-});
+
 const imageFilter = function (req, file, cb) {
     // accept image files only
     if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
@@ -46,15 +47,11 @@ const imageFilter = function (req, file, cb) {
     }
     cb(null, true);
 };
-const upload = multer({ storage: storage, fileFilter: imageFilter})
 
 
 
-cloudinary.config({ 
-  cloud_name: 'techFries', 
-  api_key: 272791148329751, 
-  api_secret: process.env.fnWmpIJncj3iI44A4Rkid7B1Q_Q
-});
+
+
 
 // Docker
 // mongoose.connect('mongodb://mongo:27017/Fries-and-Ketchup', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
@@ -285,7 +282,7 @@ app.post('/match',isLoggedIn, function(req, res) {
 	res.redirect('match');
 })
 
-app.post('/register', function(req, res){
+app.post('/register', upload.single('Image'), function(req, res){
 	console.log('POST request to user');
 	User.register(new User({username: req.body.username}), req.body.password, function(err, user) {
 		if(err) {
