@@ -52,13 +52,24 @@
                    
                         <div class="row justify-content-center marginbtm">             
                             <div class="col-lg-4 recentbgdiv yellowlinesBTM">
-                                <img src="<%= currentUser.image.path %>" class="profilepic" alt="">
+                                <form action="/user?_method=PUT" method="POST"  enctype="multipart/form-data">
+                
+                                    <input type="text" placeholder="Username" name="username" value="<%= currentUser.username %>"><br>                                     
+                                    <label for="Image">User Picture</label>
+                                    <input type="file" name="Image" enctype="multipart/form-data" value="<%= currentUser.image.path %>">
+                                    <br>
+                                    <button type="submit">Save</button>
+                                </form>
+                                <a href="/user"><button>Disgard</button></a>
+
+
+                                
                                 
                                 <h1><%= currentUser.username %></h1>
-                                <% let submittedVictory = 0; %>
-                                <% let submittedDefeat = 0; %>
                                 <% let submitted = 0; %>
-                                <% winlosses.forEach(function(winloss){ %>   
+                                <% winlosses.forEach(function(winloss){ %>                                   
+                                    <% let submittedVictory = 0; %>
+                                    <% let submittedDefeat = 0; %>
                                     <% if(winloss.user.username === currentUser.username) { %>
                                         <% submitted += 1; %>
                                         <% if(winloss.victory === 'on' | winloss.defeat === 'on') { %>
@@ -70,16 +81,14 @@
                                         <% } else if(submitted === 0) { %>
                                             <p>No Games Submitted</p>
                                         <% } %>                                        
-                                                                                                                  
+                                        <p>
+                                            Total Submitted: <%= submitted %> <br>
+                                            Victory: <%= submittedVictory %>    Defeat: <%= submittedDefeat %>
+                                        </p>                                                                          
                                     <% } else { %>
                                         <% null %>
-                                    <% } %>                                                                       
+                                    <% } %>                                    
                                 <% }); %> 
-                                <p>
-                                    Total Submitted: <%= submitted %> <br>
-                                    Victory: <%= submittedVictory %>    Defeat: <%= submittedDefeat %>
-                                </p> 
-                                <a href="/user/edit"><button>Edit Page</button></a>
                             </div>                          
                         </div>
                         <div class="row">
@@ -101,7 +110,7 @@
                                                 <% if(toon.class === "Deathknight") { %>
                                                     <img src="/css/images/ClassIcon-Deathknight-1.png" alt="">                                                 
                                                     <h3 class="deathknight"><%= toon.name %></h3>
-                                                    <p class="deathknight"><%= toon.class %></p>
+                                                    <p class="deathknight"><%= toon.class %></p>     
                                                 <% } else if(toon.class === "Demon Hunter") { %>
                                                     <img src="/css/images/ClassIcon-Demonhunter-1.png" alt="">
                                                     <h3 class="demonhunter"><%= toon.name %></h3>
@@ -157,41 +166,7 @@
                                 <% } %>
                             <% }); %>
                         </div>
-                        <div class="row justify-content-center">
-                            <div class="col-md-4 newCharacter yellowlinesBTM">
-                                <img src="../css/images/propicph.png" alt=""> <br>
-                                <h2 class="newCharh2">Create a New Character</h2>
-                                <form action="/character" method="POST">
-                                    <p>
-                                        
-                                        <input type="text" name="name" placeholder="Name" class="mr-sm-2" required>
-                                        <br>
-                                        <select name="class" id="class" class="mr-sm-2" required>
-                                            <option value="Deathknight">Deathknight</option>
-                                            <option value="Demon Hunter">Demon Hunter</option>
-                                            <option value="Druid">Druid</option>
-                                            <option value="Hunter">Hunter</option>
-                                            <option value="Mage">Mage</option>
-                                            <option value="Monk">Monk</option>
-                                            <option value="Paladin">Paladin</option>
-                                            <option value="Priest">Priest</option>
-                                            <option value="Rogue">Rogue</option>
-                                            <option value="Shaman">Shaman</option>
-                                            <option value="Warlock">Warlock</option>
-                                            <option value="Warrior">Warrior</option>
-                                        </select><br>
-                                        <select name="faction" id="faction" class="mr-sm-2" required>
-                                            <option value="Alliance">Alliance</option>
-                                            <option value="Horde">Horde</option>
-                                        </select> <br>
-                                        <button>Create</button>
-                                    </p>
-                                <input type="hidden" name="user[username]" value="<%= currentUser.username %>">
-                                <input type="hidden" name="user[id]" value="<%= currentUser._id %>">                                         
-                                    
-                                </form>
-                            </div>
-                        </div>
+                        
                         
                 </div>
                 

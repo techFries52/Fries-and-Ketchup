@@ -605,3 +605,10 @@ h1 {
     text-align: right;
     border: none;
 }
+
+.profilepic {
+    max-width: 280px;
+    max-height: 360px;
+    border-radius: 27px;
+    margin-bottom: 15px;
+}

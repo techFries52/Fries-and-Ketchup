@@ -9,8 +9,10 @@ cloudinary.config({
   
 const storage = new CloudinaryStorage({
     cloudinary,
-    folder: "Fries_and_Ketchup",
-    allowedFormats: ["jpeg", "png", "jpg"]
+    params: {
+        folder: "Fries",
+        allowedFormats: ["jpeg", "png", "jpg"]
+    }
 });
 
 module.exports = {

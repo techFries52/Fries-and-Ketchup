@@ -5,6 +5,12 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const UserSchema = new mongoose.Schema({
     username: String,
     password: String,
+    image: 
+        {
+        path: String,
+        filename: String
+        }
+    ,
     created: {type: Date, default: Date.now}
 });
 

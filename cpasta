@@ -130,3 +130,4 @@ User.findByIdAndUpdate(req.params._id, function(err,users){
 	})
 
 
+image: req.file.map(f => ({url: f.path, filename: f.filename}))

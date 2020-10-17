@@ -48,9 +48,9 @@
             <div class="container userdivs">
                
                     <div class="row justify-content-center marginbtm">             
-                        <div class="col-lg-8 recentbgdiv yellowlinesBTM">
+                        <div class="col-lg-4 recentbgdiv yellowlinesBTM">
                             
-                            <img src="../css/images/propicph.png" alt=""> <br>
+                            <img src="<%= user.image.path %>" class="profilepic" alt=""> <br>
                           
                                 
 
@@ -94,8 +94,7 @@
                                               
                                             <% } else { %>
                                                 <span class="factionSymbol"><img src="/css/images/Horde-symbol-1.png" alt=""></span>
-                                            <% } %>
-                                            <img class="card-img-top" src="../css/images/dannisquare.png" alt="#">
+                                            <% } %>                                            
                                         <div class="card-body">
                                             <% if(toon.class === "Deathknight") { %>  
                                                 <img src="/css/images/ClassIcon-Deathknight-1.png" alt="">                                                  
