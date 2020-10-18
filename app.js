@@ -9,24 +9,16 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
-const passportLocalMongoose = require('passport-local-mongoose');
-const { request } = require('express');
-
-// ===============================================================
-// Schemas
-// ===============================================================
 const Winloss = require('./models/winlossModule');
-const User = require('./models/user');
-const Character = require('./models/character');
-
-
- 
+const User = require('./models/user'); 
 const multer = require('multer');
 const { storage } = require('./cloudinary');
 const upload = multer({ storage });
 const match = require('./routes/match');
+const user = require('./routes/user');
+const members = require('./routes/members');
+const character = require('./routes/characters');
 const app = express();
-
 
 // ===============================================================
 // Config
@@ -39,7 +31,6 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error' , err => {
 	console.log('error connecting to mongodb');
 });
-
 
 app.use(require('express-session')({
 	secret: 'PickleRick',
@@ -58,14 +49,14 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
-
 // ===============================================================
 // ROUTES
 // ===============================================================
 
-
 app.use('/match', match );
+app.use('/user', user );
+app.use('/members', members );
+app.use('/character', character );
 
 app.get('/', function(req, res) {
 	console.log('GET request to /');
@@ -78,75 +69,12 @@ app.get('/index', async function(req, res) {
 	console.log('GET request to index');
 });
 
-
-app.get('/members', async function(req, res) {
-	const currentUser = req.user;
-	const winlosses = await Winloss.find({});
-	const users = await User.find({});
-	res.render('members', { winlosses, currentUser, users });		
-	console.log('GET request to members(/user)');
-});
-app.get('/members/:id', async function(req, res) {
-	const currentUser = req.user;
-	const winlosses = await Winloss.find({});
-	const user = await User.findById(req.params.id);
-	const toons = await Character.find({});
-	res.render('userPublic', { winlosses, currentUser, user, toons });			
-	console.log('GET request to members/:id ');
-});
-
-app.get('/user',isLoggedIn, async function(req, res){	
-	const currentUser = req.user;
-	const winlosses = await Winloss.find({});
-	const user = await User.findById(req.params.id);
-	const toons = await Character.find({});
-	res.render('user', { winlosses, currentUser, user, toons });	
-	console.log('GET request to user');
-});
-app.get('/user/edit',isLoggedIn, async function(req, res){	
-	const currentUser = req.user;
-	const winlosses = await Winloss.find({});
-	const user = await User.findById(req.params.id);
-	const toons = await Character.find({});
-	res.render('useredit', { winlosses, currentUser, user, toons });	
-	console.log('GET request to user/edit');
-});
-app.put('/user', isLoggedIn,  (req, res) => { 
-	let user = User.findByIdAndUpdate({username: req.body.username, image: req.file}, function(req, res){
-		if(err) {
-			console.log(err);
-		} else {
-			user.save();	
-			res.redirect('/user')
-		}
-	});
-		
-	
-})
-app.get('/character/:id', async function(req, res) {	
-	const currentUser = req.user;
-	const winlosses = await Winloss.find({});
-	const user = await User.findById(req.params.id);
-	const toon = await Character.findById(req.params.id);
-	res.render('character', { winlosses, currentUser, user, toon });		
-	console.log('GET request to character/:id ');
-	// console.log('GET request to user/character');
-});
 app.get('/register', async function(req, res) {
 	const currentUser = req.user;
 	const winlosses = await Winloss.find({});	
 	res.render('register', { winlosses, currentUser });	
 	console.log('GET request to register');
 });
-
-
-
-
-// ===============================================================
-// NEW ROUTES
-// ===============================================================
-
-
 
 app.post('/register', upload.single('Image'), function(req, res){		
 	User.register(new User({ username: req.body.username, image: req.file }), req.body.password, function(err, user) {
@@ -163,32 +91,6 @@ app.post('/register', upload.single('Image'), function(req, res){
 	console.log('POST request to user');
 })
 
-
-
-
-
-// ===============================================================
-// PUT REQUESTS
-// ===============================================================
-
-
-
-
-
-app.post('/character', isLoggedIn, async function(req, res) {
-	let character = new Character(req.body, function(){
-		console.log('character created') 
-		next();
-	});
-	await character.save();	
-	res.redirect('/user');
-})
-
-
-// ===============================================================
-// DELETEx REQUESTS
-// ===============================================================
-
 app.get('/login', function(req, res) {
 	res.render('login', {currentUser: req.user});
 });
@@ -202,8 +104,6 @@ app.get('/logout', function(req, res){
 	req.logout();
 	res.redirect('/index');
 });
-
-
 
 function isLoggedIn(req, res, next) {
 	if(req.isAuthenticated()){

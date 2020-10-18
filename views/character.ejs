@@ -47,19 +47,55 @@
                
                     <div class="row justify-content-center">             
                         <div class="col-lg-8 recentbgdiv">
-                            <p>
-                            <img src="../css/images/propicph.png" alt=""> <br>
-                            
-                            <h2>
-                                
+                            <p>                                                        
+                            <h2>                                
                                 <%= toon.name %>
                             </h2>
                             <% if(toon.faction === "Alliance"){ %>
-                                <span><img src="/css/images/Alliance-symbol-1.png" alt=""></span> <br>
-                                <%= toon.faction %>
+                                <span><img src="/css/images/Alliance-symbol-1.png" alt=""></span> <br>                                
                             <% } else { %>
                                 <span><img src="/css/images/Horde-symbol-1.png" alt=""></span> <br>
-                            <% } %> <br>
+                            <% } %>
+                            
+                            <% if(toon.class === "Deathknight") { %>  
+                                <img src="/css/images/ClassIcon-Deathknight-1.png" alt="">                                                  
+                                
+                            <% } else if(toon.class === "Demon Hunter") { %>
+                                <img src="/css/images/ClassIcon-Demonhunter-1.png" alt="">
+                                
+                            <% } else if(toon.class === "Druid") { %>
+                                <img src="/css/images/ClassIcon-Druid-1.png" alt="">
+                                
+                            <% } else if(toon.class === "Hunter") { %>
+                                <img src="/css/images/ClassIcon-Hunter-1.png" alt="">
+                                
+                            <% } else if(toon.class === "Mage") { %>
+                                <img src="/css/images/ClassIcon-Mage-1.png" alt="">
+                                
+                            <% } else if(toon.class === "Monk") { %>
+                                <img src="/css/images/ClassIcon-Monk-1.png" alt="">
+                                
+                            <% } else if(toon.class === "Paladin") { %>
+                                <img src="/css/images/ClassIcon-Paladin-1.png" alt="">
+                                
+                            <% } else if(toon.class === "Priest") { %>
+                                <img src="/css/images/ClassIcon-Priest-1.png" alt="">
+                                
+                            <% } else if(toon.class === "Rogue") { %>
+                                <img src="/css/images/ClassIcon-Rogue-1.png" alt="">
+                                
+                            <% } else if(toon.class === "Shaman") { %>
+                                <img src="/css/images/ClassIcon-Shaman-1.png" alt="">
+                                
+                            <% } else if(toon.class === "Warlock") { %>
+                                <img src="/css/images/ClassIcon-Warlock-1.png" alt="">
+                                
+                            <% } else if(toon.class === "Warrior") { %>
+                                <img src="/css/images/ClassIcon-Warrior-1.png" alt="">
+                                
+                            <% } %>
+                             <br>
+                             <br>
                             <h4>
                                 <%= toon.class %>
                             </h4>  

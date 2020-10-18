@@ -131,3 +131,9 @@ User.findByIdAndUpdate(req.params._id, function(err,users){
 
 
 image: req.file.map(f => ({url: f.path, filename: f.filename}))
+
+app.get('/index', async function(req, res) {
+	const winlosses = await Winloss.find({});
+	res.render('index', { winlosses });	
+	console.log('GET request to index');
+});
