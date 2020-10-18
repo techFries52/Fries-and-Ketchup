@@ -52,11 +52,11 @@
                    
                         <div class="row justify-content-center marginbtm">             
                             <div class="col-lg-4 recentbgdiv yellowlinesBTM">
-                                <form action="/user/<%= user.id %>?_method=PUT" method="POST"  enctype="multipart/form-data">
+                                <form action="/user/:id?_method=PUT" method="POST" name="user" enctype="multipart/form-data">
                 
-                                    <input type="text" placeholder="Username" name="username" value="<%= currentUser.username %>"><br>                                     
-                                    <label for="Image">User Picture</label>
-                                    <input type="file" name="Image" enctype="multipart/form-data" value="<%= currentUser.image.path %>">
+                                    <input type="text" placeholder="Username" name="user[username]" value="<%= currentUser.username %>"><br>                                     
+                                    <label for="user[Image]">User Picture</label>
+                                    <input type="file" name="user[Image]" enctype="multipart/form-data" value="<%= currentUser.image.path %>">
                                     <br>
                                     <button type="submit">Save</button>
                                 </form>
@@ -65,11 +65,11 @@
 
                                 
                                 
-                                <h1><%= currentUser.username %></h1>
+                                <% let submittedVictory = 0; %>
+                                <% let submittedDefeat = 0; %>
                                 <% let submitted = 0; %>
                                 <% winlosses.forEach(function(winloss){ %>                                   
-                                    <% let submittedVictory = 0; %>
-                                    <% let submittedDefeat = 0; %>
+                                    
                                     <% if(winloss.user.username === currentUser.username) { %>
                                         <% submitted += 1; %>
                                         <% if(winloss.victory === 'on' | winloss.defeat === 'on') { %>
@@ -81,14 +81,15 @@
                                         <% } else if(submitted === 0) { %>
                                             <p>No Games Submitted</p>
                                         <% } %>                                        
-                                        <p>
-                                            Total Submitted: <%= submitted %> <br>
-                                            Victory: <%= submittedVictory %>    Defeat: <%= submittedDefeat %>
-                                        </p>                                                                          
+                                                                                                                  
                                     <% } else { %>
                                         <% null %>
                                     <% } %>                                    
                                 <% }); %> 
+                                <p>
+                                    Total Submitted: <%= submitted %> <br>
+                                    Victory: <%= submittedVictory %>    Defeat: <%= submittedDefeat %>
+                                </p>
                             </div>                          
                         </div>
                         <div class="row">

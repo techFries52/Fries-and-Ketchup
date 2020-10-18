@@ -3,6 +3,8 @@ const router = express.Router();
 const Winloss = require('../models/winlossModule');
 const User = require('../models/user');
 const Character = require('../models/character');
+const methodOverride = require('method-override');
+
 
 function isLoggedIn(req, res, next) {
 	if(req.isAuthenticated()){
@@ -19,6 +21,19 @@ router.get('/',isLoggedIn, async function(req, res){
 	res.render('user', { winlosses, currentUser, user, toons });	
 	console.log('GET request to user');
 });
+
+router.put('/:_id', isLoggedIn, async function(req, res){
+	console.log(req.user);
+	const { id } = req.params;
+	const user = await User.updateOne({ _id: req.user._id},{
+		
+	});
+	
+	console.log(user);
+	console.log('PUT request to user/:id');
+	res.redirect('/user');
+});
+
 router.get('/:id/edit',isLoggedIn, async function(req, res){	
 	const currentUser = req.user;
 	const winlosses = await Winloss.find({});
@@ -27,17 +42,6 @@ router.get('/:id/edit',isLoggedIn, async function(req, res){
 	res.render('useredit', { winlosses, currentUser, user, toons });	
 	console.log('GET request to user/edit');
 });
-router.put('/', isLoggedIn,  (req, res) => { 
-	let user = User.findByIdAndUpdate({username: req.body.username, image: req.file}, function(req, res){
-		if(err) {
-			console.log(err);
-		} else {
-			user.save();	
-			res.redirect('/user')
-		}
-	});
-		
-	
-});
+
 
 module.exports = router;
