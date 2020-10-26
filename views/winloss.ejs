@@ -41,15 +41,6 @@
 
 <%- include("partials/newrbgbtn") %>
 
-    <!-- <div class="container">
-        <div class="row">            
-            <a href="newwinloss" class="btn col-4 offset-4 newwinlossbtn">
-                New RBG  
-            </a>          
-        </div>
-    </div> -->
-
-    
 
 
     <div class="container marginCont">
@@ -396,7 +387,7 @@
                     <% } else { %>
                         <h3 class="red"> Defeat</h3>
                     <% } %></span></a>
-                    <h5>Submitted by: <a href="/user/<%= winloss.user.id %>"><%= winloss.user.username %></a> </h5>
+                    <h5>Submitted by: <a href="/members/<%= winloss.user.id %>"><%= winloss.user.username %></a> </h5>
             </div>                          
         </div>
     <% }) %>

@@ -65,7 +65,8 @@ app.get('/', function(req, res) {
 app.get('/index', async function(req, res) {
 	const currentUser = req.user;
 	const winlosses = await Winloss.find({});
-	res.render('index', { winlosses, currentUser });	
+	const user = await User.find({});
+	res.render('index', { winlosses, currentUser, user });	
 	console.log('GET request to index');
 });
 

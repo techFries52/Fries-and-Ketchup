@@ -59,7 +59,11 @@
                                 <% let submittedDefeat = 0; %>
                                 <% let submitted = 0; %>
                                 <% winlosses.forEach(function(winloss){ %>   
-                                    <% if(winloss.user.username === currentUser.username) { %>
+                                    <% let userId = currentUser._id; %>
+                                    <% let winlossId = winloss.user.id; %>
+                                    <% let wlString = winlossId.toString(); %>
+                                    <% let cuString = userId.toString(); %>
+                                    <% if(wlString === cuString) { %>
                                         <% submitted += 1; %>
                                         <% if(winloss.victory === 'on' | winloss.defeat === 'on') { %>
                                             <% if(winloss.victory === 'on') { %>
@@ -83,8 +87,12 @@
                             </div>                          
                         </div>
                         <div class="row">
-                            <% toons.forEach(function(toon){ %>                               
-                                <% if(toon.user.username === currentUser.username){ %>
+                            <% toons.forEach(function(toon){ %> 
+                                <% let userId = currentUser._id; %>
+                                <% let tId = toon.user.id; %>
+                                <% let tString = tId.toString(); %>
+                                <% let uString = userId.toString(); %>                              
+                                <% if(tString === uString){ %>
                                     
                                     <div class="col-lg-3 mb-3">
                                         <a href="character/<%= toon._id %>">

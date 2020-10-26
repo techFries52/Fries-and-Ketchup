@@ -62,7 +62,21 @@
                         <h3 class="red"> Defeat</h3>
                     <% } %></span>
                 </a>              
-                <h5>Submitted by: <a href="/user/<%= winloss.user.id %>"><%= winloss.user.username %></a></h5>
+                <h5>Submitted by: <a href="/members/<%= winloss.user.id %>">
+                    <% user.forEach(function(user) { %>
+                        <% let userId = user._id; %>
+                        <% let winlossId = winloss.user.id; %>
+                        <% let wlString = winlossId.toString(); %>
+                        <% let uString = userId.toString(); %>
+                        <% if(wlString === uString) { %>
+                            <%= user.username %>
+                        <% } else { %>
+                            <% null %>
+                        <% } %>
+                    <% }) %>
+                    
+                
+                </a></h5>
                 
                
             </div>                          

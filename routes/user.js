@@ -4,6 +4,9 @@ const Winloss = require('../models/winlossModule');
 const User = require('../models/user');
 const Character = require('../models/character');
 const methodOverride = require('method-override');
+const multer = require('multer');
+const { storage } = require('../cloudinary');
+const upload = multer({ storage });
 
 
 function isLoggedIn(req, res, next) {
@@ -22,14 +25,12 @@ router.get('/',isLoggedIn, async function(req, res){
 	console.log('GET request to user');
 });
 
-router.put('/:_id', isLoggedIn, async function(req, res){
-	console.log(req.user);
-	const { id } = req.params;
-	const user = await User.updateOne({ _id: req.user._id},{
-		
-	});
-	
-	console.log(user);
+router.put('/:_id', isLoggedIn, upload.single('Image'), async function(req, res){
+	console.log(req.body);
+	const filter = { _id: req.user._id}
+	let user = await User.findOne(filter);
+	await User.updateOne(filter, req.body);
+	await user.save();
 	console.log('PUT request to user/:id');
 	res.redirect('/user');
 });
