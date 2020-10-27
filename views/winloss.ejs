@@ -10,26 +10,19 @@
                 <h4 id="jumboPara" class="floatLeft">Games Played: <span><%- winlosses.length %> </span></h4>
                 <h4 id="jumboPara" class="floatRight">Wins: <span>
                     <% let wins = 0; %>
+                    <% let losses = 0; %>
                     <% winlosses.forEach(function(winloss){ %>                                    
                         <% if(winloss.victory === 'on') { %>
                             <% wins += 1; %>
                         <% } else { %>
-                            <% null %>
+                            <% losses += 1; %>
                         <% } %>                                    
                     <% }) %>
                     <% let winstotal = wins; %>
+                    <% let lstotal = losses; %>
                     <%- winstotal %> </span> 
                     Losses: <span>
-                    <% let losses = 0; %>
-                    <% winlosses.forEach(function(winloss){ %>                                    
-                        <% if(winloss.defeat === 'on') { %>
-                            <% losses += 1; %>
-                        <% } else { %>
-                            <% null %>
-                        <% } %>                                    
-                    <% }) %>
-                    <% let lossestotal = losses; %>
-                    <%- lossestotal %>
+                    <%- lstotal %>
                     </span>
                 </h4>
             </div>
@@ -363,7 +356,7 @@
                         </span>
                         Losses: <span id="totalLoseCountDisplay">
                             
-                            <%- lossestotal %> 
+                            <%- lstotal %> 
                         </span>
                     </p>
                     
@@ -392,19 +385,6 @@
         </div>
     <% }) %>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
