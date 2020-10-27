@@ -65,14 +65,10 @@
                                     <% let cuString = userId.toString(); %>
                                     <% if(wlString === cuString) { %>
                                         <% submitted += 1; %>
-                                        <% if(winloss.victory === 'on' | winloss.defeat === 'on') { %>
-                                            <% if(winloss.victory === 'on') { %>
-                                                <% submittedVictory += 1; %>
-                                            <% } else { %>
-                                                <% submittedDefeat += 1; %>
-                                            <% } %>
-                                        <% } else if(submitted === 0) { %>
-                                            <p>No Games Submitted</p>
+                                        <% if(winloss.victory === 'on') { %>                                            
+                                            <% submittedVictory += 1; %>
+                                        <% } else { %>
+                                            <% submittedDefeat += 1; %>
                                         <% } %>                                        
                                                                                                                   
                                     <% } else { %>

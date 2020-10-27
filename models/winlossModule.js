@@ -14,7 +14,6 @@ const winlossSchema = new mongoose.Schema({
 	ally9: String,
 	ally10: String,
 	victory: String,
-	defeat: String,
 	created: {type: Date, default: Date.now},
 	user: {
 		id: {
