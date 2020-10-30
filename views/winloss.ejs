@@ -336,6 +336,45 @@
                         </p>
                     </div>
                 </div>
+            </div>            
+        </div>
+
+        <div class="row winlossRow">
+            <div class="col-lg-3 mb-3">
+                <div class="card winloss winloss1">
+                    <div class="card-body">
+                        <p>Deepwind Gorge</p>                    
+                        <p>
+                            <button id="wsgTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button>
+                            <span class="space1" id="wsgTrophyDisplay">
+                                <% let dgt = 0; %>
+                                <% winlosses.forEach(function(winloss){ %>                                    
+                                    <% if(winloss.bgs === 'Deepwind Gorge' && winloss.victory === 'on') { %>
+                                        <% dgt += 1; %>
+                                    <% } else { %>
+                                        <% null %>
+                                    <% } %>                                    
+                                <% }) %>
+                                <% let dgttotal = dgt; %>
+                                <%- dgttotal %>                                
+                            </span>                            
+                        </p>
+                        <p>
+                            <button id="wsgShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="wsgShitDisplay">
+                                <% let dgs = 0; %>
+                                <% winlosses.forEach(function(winloss){ %>                                    
+                                    <% if(winloss.bgs === 'Deepwind Gorge' && winloss.defeat === 'on') { %>
+                                        <% dgs += 1; %>
+                                    <% } else { %>
+                                        <% null %>
+                                    <% } %>                                    
+                                <% }) %>
+                                <% let dgstotal = dgs; %>
+                                <%- dgstotal %> 
+                            </span>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>    

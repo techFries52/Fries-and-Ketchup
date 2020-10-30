@@ -6,6 +6,8 @@ const Character = require('../models/character');
 const methodOverride = require('method-override');
 const multer = require('multer');
 const { storage } = require('../cloudinary');
+const cloudinary = require('../cloudinary');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const upload = multer({ storage });
 
 
@@ -26,9 +28,13 @@ router.get('/',isLoggedIn, async function(req, res){
 });
 
 router.put('/:_id', isLoggedIn, upload.single('Image'), async function(req, res){
-	console.log(req.body);
 	const filter = { _id: req.user._id}
-	let user = await User.findOne(filter);
+	const image = { image: req.file };
+	const user = await User.findOne(filter);
+	const file = req.user.image.path;
+	const path = file.slice(62, 88);
+	delimages(path);	
+	await User.updateOne(filter, image);
 	await User.updateOne(filter, req.body);
 	await user.save();
 	console.log('PUT request to user/:id');
@@ -44,5 +50,11 @@ router.get('/:id/edit',isLoggedIn, async function(req, res){
 	console.log('GET request to user/edit');
 });
 
+
+function delimages(x) {
+	cloudinary.cloudinary.uploader.destroy( x, function(error,result) {
+		console.log(result, error)
+	});
+}
 
 module.exports = router;

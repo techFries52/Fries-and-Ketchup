@@ -85,7 +85,6 @@ app.post('/register', upload.single('Image'), function(req, res){
 		} else {
 			passport.authenticate('local')(req,res, function(){
 				res.redirect('login');
-				console.log(user);
 			});
 		};
 	});
