@@ -137,3 +137,55 @@ app.get('/index', async function(req, res) {
 	res.render('index', { winlosses });	
 	console.log('GET request to index');
 });
+
+
+
+
+console.log(req.user);
+	const filter = { _id: req.user._id}
+	const image = { image: req.file };
+	await User.findOne(filter);
+	const path = req.user.image.filename;
+	delimages(path);	
+	await User.updateOne(filter, image);
+	await User.updateOne(filter, req.body);
+	await user.save();
+	console.log('PUT request to user/:id');
+	console.log(user);
+	res.redirect('/user');
+
+
+
+    function delimages(x) {
+	cloudinary.v2.uploader.destroy( x, function(error,result) {
+		console.log(result, error)
+	});
+}
+
+
+	const user = await User.findOne(filter);
+
+
+
+
+    <div class="container recentbgs">
+    
+    <% winlosses.slice().reverse().forEach(function(winloss) { %>
+        <div class="row justify-content-center">             
+            <div class="col-lg-8 recentbgdiv">
+                <a href="match/<%= winloss._id %>">
+                    <h2>
+                        <%= winloss.bgs %>
+                    </h2>
+                    <span><%= winloss.created.toDateString() %></span>
+                    <span><% if(winloss.victory === "on") { %>
+                        <h3 class="green">Victory</h3>
+                    <% } else { %>
+                        <h3 class="red"> Defeat</h3>
+                    <% } %></span>
+                </a>
+                    <h5>Submitted by: <a href="/members/<%= winloss.user.id %>"><%= winloss.user.username %></a> </h5>
+            </div>                          
+        </div>
+    <% }) %>
+</div>

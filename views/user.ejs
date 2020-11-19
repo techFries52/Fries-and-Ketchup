@@ -35,46 +35,47 @@
 
 <%- include("partials/newrbgbtn") %>
 
+    <div class="container">
+        <div class="row justify-content-center marginbtm">             
+            <div class="col-lg-4 recentbgdiv yellowlinesBTM">
+                <img src="<%= currentUser.image.path %>" class="profilepic" alt="">
+                
+                <h1><%= currentUser.username %></h1>
+                <% let submittedVictory = 0; %>
+                <% let submittedDefeat = 0; %>
+                <% let submitted = 0; %>
+                <% winlosses.forEach(function(winloss){ %>   
+                    <% let userId = currentUser._id; %>
+                    <% let winlossId = winloss.user.id; %>
+                    <% let wlString = winlossId.toString(); %>
+                    <% let cuString = userId.toString(); %>
+                    <% if(wlString === cuString) { %>
+                        <% submitted += 1; %>
+                        <% if(winloss.victory === 'on') { %>                                            
+                            <% submittedVictory += 1; %>
+                        <% } else { %>
+                            <% submittedDefeat += 1; %>
+                        <% } %>                                        
+                                                                                                  
+                    <% } else { %>
+                        <% null %>
+                    <% } %>                                                                       
+                <% }); %> 
+                <p>
+                    Total Submitted: <%= submitted %> <br>
+                    Victory: <%= submittedVictory %>    Defeat: <%= submittedDefeat %>
+                </p> 
+                <a href="/user/<%= currentUser.id %>/edit"><button>Edit Page</button></a>
+            </div>                          
+        </div>
+    </div>
 
 
 
-    <div class="container marginbtm">
-        <div class="row usercont justify-content-center">
-            <div class="col-md-12">
+    
                 <div class="container userdivs">
                    
-                        <div class="row justify-content-center marginbtm">             
-                            <div class="col-lg-4 recentbgdiv yellowlinesBTM">
-                                <img src="<%= currentUser.image.path %>" class="profilepic" alt="">
-                                
-                                <h1><%= currentUser.username %></h1>
-                                <% let submittedVictory = 0; %>
-                                <% let submittedDefeat = 0; %>
-                                <% let submitted = 0; %>
-                                <% winlosses.forEach(function(winloss){ %>   
-                                    <% let userId = currentUser._id; %>
-                                    <% let winlossId = winloss.user.id; %>
-                                    <% let wlString = winlossId.toString(); %>
-                                    <% let cuString = userId.toString(); %>
-                                    <% if(wlString === cuString) { %>
-                                        <% submitted += 1; %>
-                                        <% if(winloss.victory === 'on') { %>                                            
-                                            <% submittedVictory += 1; %>
-                                        <% } else { %>
-                                            <% submittedDefeat += 1; %>
-                                        <% } %>                                        
-                                                                                                                  
-                                    <% } else { %>
-                                        <% null %>
-                                    <% } %>                                                                       
-                                <% }); %> 
-                                <p>
-                                    Total Submitted: <%= submitted %> <br>
-                                    Victory: <%= submittedVictory %>    Defeat: <%= submittedDefeat %>
-                                </p> 
-                                <a href="/user/<%= currentUser.id %>/edit"><button>Edit Page</button></a>
-                            </div>                          
-                        </div>
+                        
                         <div class="row">
                             <% toons.forEach(function(toon){ %> 
                                 <% let userId = currentUser._id; %>
@@ -144,10 +145,9 @@
                                                     <h3 class="warrior"><%= toon.name %></h3>
                                                     <p class="warrior"><%= toon.class %></p>
                                                 <% } %>
-                                                
                                             </div>
                                             </div>                        
-                                        </a> 
+                                        </a>                                         
                                     </div>                      
                                 <% } else { %>
                                     <% null %>
@@ -162,8 +162,9 @@
                                     <p>
                                         
                                         <input type="text" name="name" placeholder="Name" class="mr-sm-2" required>
-                                        <br>
-                                        <select name="class" id="class" class="mr-sm-2" required>
+                                    </p>
+                                    <p>
+                                        <select name="class" id="class" class="mr-sm-2 space" required>
                                             <option value="Deathknight">Deathknight</option>
                                             <option value="Demon Hunter">Demon Hunter</option>
                                             <option value="Druid">Druid</option>
@@ -176,8 +177,10 @@
                                             <option value="Shaman">Shaman</option>
                                             <option value="Warlock">Warlock</option>
                                             <option value="Warrior">Warrior</option>
-                                        </select><br>
-                                        <select name="faction" id="faction" class="mr-sm-2" required>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <select name="faction" id="faction" class="mr-sm-2 space" required>
                                             <option value="Alliance">Alliance</option>
                                             <option value="Horde">Horde</option>
                                         </select> <br>
@@ -192,10 +195,7 @@
                         
                 </div>
                 
-            </div>
-        </div>
-    </div>
-
+           
     
 
 

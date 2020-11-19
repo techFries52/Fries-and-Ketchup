@@ -6,6 +6,8 @@ body {
     background-attachment: fixed;
 }
 
+
+
 /* 
 ===============================================================
 ===============================================================
@@ -61,6 +63,15 @@ body {
 ===============================================================
 ===============================================================
 =============================================================== */
+
+button {
+    border-radius: 8px;
+    margin: 5px;
+    background-color: #ffc116;
+    border: 2px solid #0f0f0f;
+    border-bottom: 2px solid #ffc116;
+    transition: all 0.3s;
+}
 
 .jumboContainer {
     background-image: url('images/team1.jpg');
@@ -143,6 +154,11 @@ h3 {
     /* box-shadow: #f0b000 2px 2px 2px; */
     font-weight: normal;
     font-family: 'Metal Mania', cursive;
+    transition: 0.3s;
+}
+
+.newwinlossbtn:hover {
+    transform: scale(1.1);
 }
 
 /* 
@@ -210,6 +226,10 @@ h3 {
     font-family: 'Josefin Sans', sans-serif;
 }
 
+.card-img-top {
+    border-radius: 27px;
+}
+
 .card-body {
     padding-bottom: 0px;
     text-align: center;
@@ -236,10 +256,16 @@ h3 {
     font-family: 'Aclonica', sans-serif;
     color: #fafafa;
     background-color: #0e0d00c5;
+    background-color: #2c2c2c;
+    border-radius: 27px;
+    transition: 0.35s;
     /* background-image: url('images/parchment2memberSmall.jpg');
     background-size: cover; */
 }
 
+.memberSmall:hover {
+    transform: scale(1.05);
+}
 /* 
 ===============================================================
 ===============================================================
@@ -261,9 +287,15 @@ h3 {
     -moz-transition: background 0.6s; */
 }
 
-/* .borderclass {
-    
-} */
+.float-center {
+    text-align: center;
+    justify-content: center;
+    font-family: 'Metal Mania', cursive;
+}
+
+.hidden {
+    visibility: hidden;
+}
 
 .totalCount {
     color: #fafafa;
@@ -298,7 +330,9 @@ h3 {
     text-align: center;
     font-family: 'Aclonica', sans-serif;
     border-radius: 27px;
+    transition: all 0.3s;
 }
+
 
 #totalWinCountDisplay {
     margin-right: 10px;
@@ -505,13 +539,17 @@ h2 {
 ===============================================================
 ===============================================================
 =============================================================== */
-
+.space {
+    padding: 2px;
+}
 
 
 .newCharacter {
     padding-top: 20px;
     color: #fafafa;
     background-color: #2c2c2c;
+    border: 2px solid #0f0f0f;
+    border-bottom: 2px solid #ffc116;
     border-radius: 27px;
     margin-bottom: 20px;
 }
@@ -525,11 +563,35 @@ h2 {
     color: #fafafa;
     border-radius: 27px;
     background-color: #2c2c2c;
+    border: 2px solid #0f0f0f;
+    border-bottom: 2px solid #ffc116;
 }
 
 .winlossRow {
     justify-content: center;
     text-align: center;
+}
+
+.regbtns {
+    margin: 5px;
+    background-color: #ffc116;
+}
+
+.loginbtns {
+    border-radius: 8px;
+    margin: 5px;
+    background-color: #ffc116;    
+    border: 2px solid #0f0f0f;
+    border-bottom: 2px solid #ffc116;
+    transition: all 0.3s;
+}
+
+.loginbtns:hover {
+    transform: scale(1.1);
+}
+
+.userinputs {
+    margin: 5px;
 }
 
 .yellowlinesBTM {

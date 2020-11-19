@@ -4,6 +4,7 @@ const Winloss = require('../models/winlossModule');
 const User = require('../models/user');
 const Character = require('../models/character');
 
+
 router.get('/', async function(req, res) {
 	const currentUser = req.user;
 	const winlosses = await Winloss.find({});

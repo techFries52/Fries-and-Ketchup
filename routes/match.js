@@ -3,6 +3,7 @@ const router = express.Router();
 const Winloss = require('../models/winlossModule');
 const User = require('../models/user');
 const Character = require('../models/character');
+const catchAsync = require('../utils/catchAsync');
 
 function isLoggedIn(req, res, next) {
 	if(req.isAuthenticated()){
@@ -18,7 +19,7 @@ router.get('/', async function(req, res) {
 	console.log('GET request to match');	
 });
 
-router.post('/',isLoggedIn, async function(req, res) {
+router.post('/',isLoggedIn, catchAsync(async (req, res) => {
 	console.log('POST request to match');
 	let match = new Winloss(req.body, function(){
 		match.user.username = req.user.username;
@@ -27,6 +28,15 @@ router.post('/',isLoggedIn, async function(req, res) {
 	});
 	await match.save();
 	res.redirect('/match');
+}))
+
+router.get('/all', async function(req, res) {
+	const currentUser = req.user;
+	const winlosses = await Winloss.find({});
+	const users = await User.find({});
+	const toons = await Character.find({});
+	res.render('allmatches', { winlosses, currentUser, users, toons });	
+	console.log('GET request to winloss/new');
 })
 
 router.get('/new',isLoggedIn, async function(req, res) {

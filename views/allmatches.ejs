@@ -1,0 +1,59 @@
+<%- include("partials/header2") %>
+
+
+<div class="jumboContainer">
+    <div class="jumbotron text-center">
+        <h1 class="display-3">Fries and Ketchup</h1>
+        <h2 class="lead">All Matches</h2>
+        <hr class="my-2">
+        <div class="container">
+            <h4 id="jumboPara" class="floatLeft">Games Played: <span><%- winlosses.length %> </span></h4>
+            <h4 id="jumboPara" class="floatRight">Wins: <span>
+                <% let wins = 0; %>
+                <% let losses = 0; %>
+                <% winlosses.forEach(function(winloss){ %>                                    
+                    <% if(winloss.victory === 'on') { %>
+                        <% wins += 1; %>
+                    <% } else { %>
+                        <% losses += 1; %>
+                    <% } %>                                    
+                <% }) %>
+                <% let winstotal = wins; %>
+                <% let lstotal = losses; %>
+                <%- winstotal %> </span> 
+                Losses: <span>
+                <%- lstotal %>
+                </span>
+            </h4>
+        </div>
+        <!-- <p class="lead">
+            <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+        </p> -->
+    </div>
+</div>
+
+<%- include("partials/newrbgbtn") %>
+
+<div id="seeAllDiv" class="container recentbgs">    
+    <% winlosses.slice().reverse().forEach(function(winloss) { %>
+        <div class="row justify-content-center">             
+            <div class="col-lg-8 recentbgdiv">
+                <a href="match/<%= winloss._id %>">
+                    <h2>
+                        <%= winloss.bgs %>
+                    </h2>
+                    <span><%= winloss.created.toDateString() %></span>
+                    <span><% if(winloss.victory === "on") { %>
+                        <h3 class="green">Victory</h3>
+                    <% } else { %>
+                        <h3 class="red"> Defeat</h3>
+                    <% } %></span>
+                </a>
+                    <h5>Submitted by: <a href="/members/<%= winloss.user.id %>"><%= winloss.user.username %></a> </h5>
+            </div>                          
+        </div>
+    <% }) %>
+</div>
+
+
+<%- include("partials/footer") %>

@@ -45,10 +45,16 @@
                         <p>
                             <button id="wsgTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button>
                             <span class="space1" id="wsgTrophyDisplay">
+                                <% let wsgs = 0; %>
                                 <% let wsgt = 0; %>
                                 <% winlosses.forEach(function(winloss){ %>                                    
                                     <% if(winloss.bgs === 'Warsong Gulch' && winloss.victory === 'on') { %>
                                         <% wsgt += 1; %>
+                                    <% } else { %>
+                                        <% null %>
+                                    <% } %>
+                                    <% if(winloss.bgs === 'Warsong Gulch' && !winloss.victory) { %>
+                                        <% wsgs += 1; %>
                                     <% } else { %>
                                         <% null %>
                                     <% } %>
@@ -60,15 +66,6 @@
                         </p>
                         <p>
                             <button id="wsgShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="wsgShitDisplay">
-                                <% let wsgs = 0; %>
-                                <% winlosses.forEach(function(winloss){ %>                                    
-                                    <% if(winloss.bgs === 'Warsong Gulch' && winloss.defeat === 'on') { %>
-                                        <% wsgs += 1; %>
-                                    <% } else { %>
-                                        <% null %>
-                                    <% } %>
-                                    
-                                <% }) %>
                                 <% let wsgstotal = wsgs; %>
                                 <%- wsgstotal %> 
                             </span>
@@ -84,13 +81,19 @@
                         <p>
                             <button id="wsgTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button>
                             <span class="space1" id="wsgTrophyDisplay">
+                                <% let abs = 0; %>
                                 <% let abt = 0; %>
                                 <% winlosses.forEach(function(winloss){ %>                                    
                                     <% if(winloss.bgs === 'Arathi Basin' && winloss.victory === 'on') { %>
                                         <% abt += 1; %>
                                     <% } else { %>
                                         <% null %>
-                                    <% } %>                                    
+                                    <% } %> 
+                                    <% if(winloss.bgs === 'Arathi Basin' && !winloss.victory) { %>
+                                        <% abs += 1; %>
+                                    <% } else { %>
+                                        <% null %>
+                                    <% } %>                                   
                                 <% }) %>
                                 <% let abttotal = abt; %>
                                 <%- abttotal %>                                
@@ -98,15 +101,7 @@
                         </p>
                         <p>
                             <button id="wsgShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="wsgShitDisplay">
-                                <% let abs = 0; %>
-                                <% winlosses.forEach(function(winloss){ %>                                    
-                                    <% if(winloss.bgs === 'Arathi Basin' && winloss.defeat === 'on') { %>
-                                        <% abs += 1; %>
-                                    <% } else { %>
-                                        <% null %>
-                                    <% } %>                                    
-                                <% }) %>
-                                <% let abstotal = abs; %>
+                               <% let abstotal = abs; %>
                                 <%- abstotal %> 
                             </span>
                         </p>
@@ -121,13 +116,19 @@
                         <p>
                             <button id="wsgTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button>
                             <span class="space1" id="wsgTrophyDisplay">
+                                <% let eotss = 0; %>
                                 <% let eotst = 0; %>
                                 <% winlosses.forEach(function(winloss){ %>                                    
                                     <% if(winloss.bgs === 'Eye of the Storm' && winloss.victory === 'on') { %>
                                         <% eotst += 1; %>
                                     <% } else { %>
                                         <% null %>
-                                    <% } %>                                    
+                                    <% } %> 
+                                    <% if(winloss.bgs === 'Eye of the Storm' && !winloss.victory) { %>
+                                        <% eotss += 1; %>
+                                    <% } else { %>
+                                        <% null %>
+                                    <% } %>                                   
                                 <% }) %>
                                 <% let eotsttotal = eotst; %>
                                 <%- eotsttotal %>                                
@@ -135,14 +136,6 @@
                         </p>
                         <p>
                             <button id="wsgShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="wsgShitDisplay">
-                                <% let eotss = 0; %>
-                                <% winlosses.forEach(function(winloss){ %>                                    
-                                    <% if(winloss.bgs === 'Eye of the Storm' && winloss.defeat === 'on') { %>
-                                        <% eotss += 1; %>
-                                    <% } else { %>
-                                        <% null %>
-                                    <% } %>                                    
-                                <% }) %>
                                 <% let eotsstotal = eotss; %>
                                 <%- eotsstotal %> 
                             </span>
@@ -158,13 +151,19 @@
                         <p>
                             <button id="wsgTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button>
                             <span class="space1" id="wsgTrophyDisplay">
+                                <% let ssms = 0; %>
                                 <% let ssmt = 0; %>
                                 <% winlosses.forEach(function(winloss){ %>                                    
                                     <% if(winloss.bgs === 'Silvershard Mines' && winloss.victory === 'on') { %>
                                         <% ssmt += 1; %>
                                     <% } else { %>
                                         <% null %>
-                                    <% } %>                                    
+                                    <% } %> 
+                                    <% if(winloss.bgs === 'Silvershard Mines' && !winloss.victory) { %>
+                                        <% ssms += 1; %>
+                                    <% } else { %>
+                                        <% null %>
+                                    <% } %>                                   
                                 <% }) %>
                                 <% let ssmttotal = ssmt; %>
                                 <%- ssmttotal %>                                
@@ -172,14 +171,6 @@
                         </p>
                         <p>
                             <button id="wsgShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="wsgShitDisplay">
-                                <% let ssms = 0; %>
-                                <% winlosses.forEach(function(winloss){ %>                                    
-                                    <% if(winloss.bgs === 'Silvershard Mines' && winloss.defeat === 'on') { %>
-                                        <% ssms += 1; %>
-                                    <% } else { %>
-                                        <% null %>
-                                    <% } %>                                    
-                                <% }) %>
                                 <% let ssmstotal = ssms; %>
                                 <%- ssmstotal %> 
                             </span>
@@ -197,10 +188,16 @@
                         <p>
                             <button id="wsgTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button>
                             <span class="space1" id="wsgTrophyDisplay">
+                                <% let bfgs = 0; %>
                                 <% let bfgt = 0; %>
                                 <% winlosses.forEach(function(winloss){ %>                                    
                                     <% if(winloss.bgs === 'Battle for Gilneas' && winloss.victory === 'on') { %>
                                         <% bfgt += 1; %>
+                                    <% } else { %>
+                                        <% null %>
+                                    <% } %>
+                                    <% if(winloss.bgs === 'Battle for Gilneas' && !winloss.victory) { %>
+                                        <% bfgs += 1; %>
                                     <% } else { %>
                                         <% null %>
                                     <% } %>                                    
@@ -211,14 +208,6 @@
                         </p>
                         <p>
                             <button id="wsgShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="wsgShitDisplay">
-                                <% let bfgs = 0; %>
-                                <% winlosses.forEach(function(winloss){ %>                                    
-                                    <% if(winloss.bgs === 'Battle for Gilneas' && winloss.defeat === 'on') { %>
-                                        <% bfgs += 1; %>
-                                    <% } else { %>
-                                        <% null %>
-                                    <% } %>                                    
-                                <% }) %>
                                 <% let bfgstotal = bfgs; %>
                                 <%- bfgstotal %> 
                             </span>
@@ -234,10 +223,16 @@
                         <p>
                             <button id="wsgTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button>
                             <span class="space1" id="wsgTrophyDisplay">
+                                <% let tps = 0; %>
                                 <% let tpt = 0; %>
                                 <% winlosses.forEach(function(winloss){ %>                                    
                                     <% if(winloss.bgs === 'Twin Peaks' && winloss.victory === 'on') { %>
                                         <% tpt += 1; %>
+                                    <% } else { %>
+                                        <% null %>
+                                    <% } %>
+                                    <% if(winloss.bgs === 'Twin Peaks' && !winloss.victory) { %>
+                                        <% tps += 1; %>
                                     <% } else { %>
                                         <% null %>
                                     <% } %>                                    
@@ -248,15 +243,7 @@
                         </p>
                         <p>
                             <button id="wsgShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="wsgShitDisplay">
-                                <% let tps = 0; %>
-                                <% winlosses.forEach(function(winloss){ %>                                    
-                                    <% if(winloss.bgs === 'Twin Peaks' && winloss.defeat === 'on') { %>
-                                        <% tps += 1; %>
-                                    <% } else { %>
-                                        <% null %>
-                                    <% } %>                                    
-                                <% }) %>
-                                <% let tpstotal = tps; %>
+                               <% let tpstotal = tps; %>
                                 <%- tpstotal %> 
                             </span>
                         </p>    
@@ -271,10 +258,16 @@
                         <p>
                             <button id="wsgTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button>
                             <span class="space1" id="wsgTrophyDisplay">
+                                <% let temples = 0; %>
                                 <% let templet = 0; %>
                                 <% winlosses.forEach(function(winloss){ %>                                    
                                     <% if(winloss.bgs === 'Temple of Kotmogu' && winloss.victory === 'on') { %>
                                         <% templet += 1; %>
+                                    <% } else { %>
+                                        <% null %>
+                                    <% } %>
+                                    <% if(winloss.bgs === 'Temple of Kotmogu' && !winloss.victory) { %>
+                                        <% temples += 1; %>
                                     <% } else { %>
                                         <% null %>
                                     <% } %>                                    
@@ -285,14 +278,6 @@
                         </p>
                         <p>
                             <button id="wsgShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="wsgShitDisplay">
-                                <% let temples = 0; %>
-                                <% winlosses.forEach(function(winloss){ %>                                    
-                                    <% if(winloss.bgs === 'Temple of Kotmogu' && winloss.defeat === 'on') { %>
-                                        <% temples += 1; %>
-                                    <% } else { %>
-                                        <% null %>
-                                    <% } %>                                    
-                                <% }) %>
                                 <% let templestotal = temples; %>
                                 <%- templestotal %> 
                             </span>
@@ -308,10 +293,16 @@
                         <p>
                             <button id="wsgTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button>
                             <span class="space1" id="wsgTrophyDisplay">
+                                <% let sss = 0; %>
                                 <% let sst = 0; %>
                                 <% winlosses.forEach(function(winloss){ %>                                    
                                     <% if(winloss.bgs === 'Seething Shore' && winloss.victory === 'on') { %>
                                         <% sst += 1; %>
+                                    <% } else { %>
+                                        <% null %>
+                                    <% } %>
+                                    <% if(winloss.bgs === 'Seething Shore' && !winloss.victory) { %>
+                                        <% sss += 1; %>
                                     <% } else { %>
                                         <% null %>
                                     <% } %>                                    
@@ -322,14 +313,6 @@
                         </p>
                         <p>
                             <button id="wsgShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="wsgShitDisplay">
-                                <% let sss = 0; %>
-                                <% winlosses.forEach(function(winloss){ %>                                    
-                                    <% if(winloss.bgs === 'Seething Shore' && winloss.defeat === 'on') { %>
-                                        <% sss += 1; %>
-                                    <% } else { %>
-                                        <% null %>
-                                    <% } %>                                    
-                                <% }) %>
                                 <% let ssstotal = sss; %>
                                 <%- ssstotal %> 
                             </span>
@@ -347,13 +330,19 @@
                         <p>
                             <button id="wsgTrophyButton" class="btn btn-lg"><i class="fas fa-trophy"></i></i></button>
                             <span class="space1" id="wsgTrophyDisplay">
+                                <% let dgs = 0; %>
                                 <% let dgt = 0; %>
                                 <% winlosses.forEach(function(winloss){ %>                                    
                                     <% if(winloss.bgs === 'Deepwind Gorge' && winloss.victory === 'on') { %>
                                         <% dgt += 1; %>
                                     <% } else { %>
                                         <% null %>
-                                    <% } %>                                    
+                                    <% } %>
+                                    <% if(winloss.bgs === 'Deepwind Gorge' && !winloss.victory) { %>
+                                        <% dgs += 1; %>
+                                    <% } else { %>
+                                        <% null %>
+                                    <% } %>                                      
                                 <% }) %>
                                 <% let dgttotal = dgt; %>
                                 <%- dgttotal %>                                
@@ -361,14 +350,6 @@
                         </p>
                         <p>
                             <button id="wsgShitButton" class="btn btn-lg"><i class="fas fa-poop"></i></button><span class="space1" id="wsgShitDisplay">
-                                <% let dgs = 0; %>
-                                <% winlosses.forEach(function(winloss){ %>                                    
-                                    <% if(winloss.bgs === 'Deepwind Gorge' && winloss.defeat === 'on') { %>
-                                        <% dgs += 1; %>
-                                    <% } else { %>
-                                        <% null %>
-                                    <% } %>                                    
-                                <% }) %>
                                 <% let dgstotal = dgs; %>
                                 <%- dgstotal %> 
                             </span>
@@ -404,26 +385,34 @@
         </div>
     </div>
 
+    <div class="container recentbgs">    
+        <% const matches = winlosses.reverse().slice(0, 10) %>
+        <% matches.forEach(function(winloss) { %>
+            <div class="row justify-content-center">             
+                <div class="col-lg-8 recentbgdiv">
+                    <a href="match/<%= winloss._id %>">
+                        <h2>
+                            <%= winloss.bgs %>
+                        </h2>
+                        <span><%= winloss.created.toDateString() %></span>
+                        <span><% if(winloss.victory === "on") { %>
+                            <h3 class="green">Victory</h3>
+                        <% } else { %>
+                            <h3 class="red"> Defeat</h3>
+                        <% } %></span>
+                    </a>
+                        <h5>Submitted by: <a href="/members/<%= winloss.user.id %>"><%= winloss.user.username %></a> </h5>
+                </div>                          
+            </div>
+        <% }) %>        
+    </div>
+    <div class="container float-center">
+        <a href="/match/all">
+            <button class="loginbtns">See All</button>
+        </a>
+    </div>
+    
 
-<div class="container recentbgs">
-    <% winlosses.slice().reverse().forEach(function(winloss) { %>
-        <div class="row justify-content-center">             
-            <div class="col-lg-8 recentbgdiv">
-                <a href="match/<%= winloss._id %>">
-                    <h2>
-                        <%= winloss.bgs %>
-                    </h2>
-                    <span><%= winloss.created.toDateString() %></span></a>
-                    <span><% if(winloss.victory === "on") { %>
-                        <h3 class="green">Victory</h3>
-                    <% } else { %>
-                        <h3 class="red"> Defeat</h3>
-                    <% } %></span></a>
-                    <h5>Submitted by: <a href="/members/<%= winloss.user.id %>"><%= winloss.user.username %></a> </h5>
-            </div>                          
-        </div>
-    <% }) %>
-</div>
 
 
 

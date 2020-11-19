@@ -3,6 +3,7 @@ const router = express.Router();
 const Winloss = require('../models/winlossModule');
 const User = require('../models/user');
 const Character = require('../models/character');
+const catchAsync = require('../utils/catchAsync');
 
 function isLoggedIn(req, res, next) {
 	if(req.isAuthenticated()){
@@ -12,14 +13,14 @@ function isLoggedIn(req, res, next) {
 }
 
 
-router.post('/', isLoggedIn, async function(req, res) {
+router.post('/', isLoggedIn, catchAsync(async (req, res) => {
 	let character = new Character(req.body, function(){
 		console.log('character created') 
 		next();
 	});
 	await character.save();	
 	res.redirect('/user');
-})
+}));
 
 router.get('/:id', async function(req, res) {	
 	const currentUser = req.user;
@@ -30,5 +31,11 @@ router.get('/:id', async function(req, res) {
 	console.log('GET request to character/:id ');
 });
 
+router.delete("/:id", isLoggedIn, async function(req, res) {
+	await Character.findByIdAndDelete(req.params.id);
+	console.log(req.params);
+	res.redirect('/user');
+	console.log('DELETE request to character');
+})
 
 module.exports = router;
